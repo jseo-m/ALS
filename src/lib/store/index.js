@@ -15,5 +15,5 @@ export const useAuth = create(set => ({
   setUserInfo: (userInfo) => set({userInfo}),
   userInfoRefetch: () => {},
   setUserInfoRefetch: (userInfoRefetch) => set({userInfoRefetch}),
-  resetAuth: () => set({aToken: "", email: "", name: "", role: 0, emailAuth: false, userInfo: null, userInfoRefetch: () => {}}), 
+  resetAuth: () => set({aToken: "", email: "", name: "", role: 0, emailAuth: false, userInfo: null, userInfoRefetch: () => {}}),
 }))
