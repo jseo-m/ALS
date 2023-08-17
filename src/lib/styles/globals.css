@@ -1,0 +1,326 @@
+@font-face {
+  font-family: Montserrat;
+  font-weight: 300;
+  src: url("/font/Montserrat-Light.woff") format("woff");
+}
+@font-face {
+  font-family: Montserrat;
+  font-weight: 400;
+  src: url("/font/Montserrat-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: Montserrat;
+  font-weight: 500;
+  src: url("/font/Montserrat-Medium.woff") format("woff");
+}
+@font-face {
+  font-family: Montserrat;
+  font-weight: 600;
+  src: url("/font/Montserrat-SemiBold.woff") format("woff");
+}
+@font-face {
+  font-family: Montserrat;
+  font-weight: 700;
+  src: url("/font/Montserrat-Bold.woff") format("woff");
+}
+
+:root {
+  --color-blue1: #53b6ed;
+  --color-blue2: #d1eeff;
+  --color-black: #1f1f1f;
+  --color-black1: #202124;
+  --color-black2: #2f3034;
+  --color-black3: #878788;
+  --color-black4: #ebebeb;
+  --color-white: white;
+
+  --black: black;
+  --black-strong: #1f1f1f;
+  --black-main: rgb(32, 33, 36);
+  --black-sub: rgb(47, 48, 52);
+  --black-weak: rgb(60, 60, 60);
+  --gray-main: #878788;
+  --white: white;
+  --blue-disabled: #3b69cd;
+  --blue-strong: #4570f0;
+  --blue-main: #53b6ed;
+  --blue-sub: #d1eeff;
+  --orange-strong: #ff5a5a;
+  --orange-main: #ff744d;
+  --orange-sub: #fff9ee;
+  --green-main: #3bd364;
+  --red-main: orangered;
+  --red-strong: red;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat';
+  font-size: inherit;
+  font-weight: inherit;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body, #__next {
+  height: 100%;
+  color: white;
+  background-color: var(--black-sub);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  caret-color: transparent;
+}
+strong {
+  font-weight: 700;
+}
+img {
+  display: block;
+  cursor: pointer;
+}
+video {
+  position: relative;
+  background-color: black;
+  width: 100%;
+}
+ul, li {
+  list-style: none;
+}
+label {
+  cursor: pointer;
+}
+input {
+  border: none;
+  color: inherit;
+}
+input::placeholder{
+  color: #989899;
+  font-size: 16px;
+  font-family: 'Montserrat';
+}
+button {
+  border: none;
+  cursor: pointer;
+  background-color: silver;
+}
+
+/*
+  gsc: global style class
+*/
+img.gsc_img_32_gray_main {
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  background-color: var(--gray-main);
+}
+img.gsc_img_32_gray_main.gsc_hover:hover {
+  background-color: var(--blue-main);
+}
+
+[data-css-flex=row] {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 
+  global custom css
+*/
+
+/* gcc prevent children from being cliked */
+.gcc-no-children-click * {
+  pointer-events: none;
+}
+
+/* 
+gcc scrollbar requires   
+  overflow-y: auto; // viewbox 오른쪽 fixed
+  overflow-y: overlay; // 해당 요소의 absolute
+*/
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--black-sub);
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: var(--blue-main);
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-strong);
+}
+::-webkit-scrollbar-corner {
+  background: var(--black-main);
+}
+
+/*
+  global style css
+*/
+
+/* GoogleMap info window */
+.infoContent {
+  position: relative;
+  background-color: rgba(44, 44, 44, 0.9);
+  padding: 15px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.infoContent * {
+  color: white;
+  font-size: inherit;
+  font-weight: inherit;
+}
+.infoContent [data-color="color"] {color: white;}
+.infoContent [data-color="blue"] {color: #53b6ed;}
+.infoContent [data-color="gray"] {color: #878788;}
+.infoContent [data-fs="10"] {font-size: 10px;}
+.infoContent [data-fs="12"] {font-size: 12px;}
+.infoContent [data-fs="16"] {font-size: 16px;}
+.infoContent [data-fw="600"] {font-weight: 600;}
+.infoContent [data-fw="700"] {font-weight: 700;}
+.infoContent > main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.infoContent > main > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.infoContent > main > header > span:nth-of-type(2) {
+  height: 22px;
+  border-radius: 11px;
+  padding: 0 7px;
+  border: 2px solid #53b6ed;
+  line-height: 1.8;
+}
+.infoContent > main > [name="serial"] {
+  display: flex;
+  gap: 5px;
+  padding-bottom: 10px;
+}
+
+.infoContent > main > [name="address"] {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.infoContent > main > footer {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 10px;
+  padding-top: 10px;
+}
+.infoContent > main > footer > [name="weather"] {
+  grid-area: 1 / 1 / 4 / 2;
+}
+.infoContent > main > footer > [name="weather"] > div {
+  display: grid;
+  place-items: center;
+  background-color: black;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.infoContent > main > footer > [name="temp"] {
+  grid-area: 1 / 2 / 2 / 3;
+  line-height: 1.5;
+  display: flex;
+  gap: 10px;
+}
+.infoContent > main > footer > [name="humid"] {
+  grid-area: 2 / 2 / 3 / 3;
+  line-height: 1.5;
+  display: flex;
+  gap: 10px;
+}
+.infoContent > main > footer > [name="wind"] {
+  grid-area: 3 / 2 / 4 / 3;
+  line-height: 1.5;
+  display: flex;
+  gap: 10px;
+}
+/* device off */
+.infoContent[name="false"] * {
+  color: #878788;
+}
+.infoContent[name="false"] > main > footer {
+  display: none;
+}
+.infoContent[name="false"] > main > header > span:nth-of-type(2) {
+  border-color: #878788;
+}
+/* 인포윈도우 콜백함수 */
+.infoContent .iWindowsCloseCallback {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  padding: 5px;
+  color: red;
+  background-color: white;
+  cursor: pointer;
+}
+/* 인포윈도우 화살표 */ 
+.infoContent > .arrow_left {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 0;
+  transform: translate(-100%, -50%);
+  width: 20px;
+  height: 20px;
+  border-right: 10px solid transparent; /* color */
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+.infoContent > .arrow_bottom {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  width: 20px;
+  height: 20px;
+  border-top: 10px solid transparent; /* color */
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+/* 배경 및 그림자 투명 */
+.gm-style-iw-c {
+  background: transparent !important;
+}
+/* 인포윈도우 강제 패딩 제거 */
+.gm-style-iw {
+  padding: 0 !important;
+  overflow: visible !important;
+}
+/* 인포윈도우 스크롤 제거 */
+.gm-style-iw > .gm-style-iw-d { overflow: visible !important; }
+/* 인포윈도우 닫기 버튼 */
+.gm-style-iw > button { display: none !important; }
+/* 인포윈도우 화살표 */
+.gm-style-iw-tc::after { display: none !important; } 
+
+/* react-quill */
+.ql-editor {
+  min-height: 250px;
+}
