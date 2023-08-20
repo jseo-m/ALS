@@ -19,14 +19,12 @@ export default {
   SNS: {
     list: ['google', 'facebook', 'apple']
   },
-  drivingState: ["전원꺼짐", "주행중", "주차중", "전원꺼짐"], 
-  onlineState: ["OFFLINE", "ONLINE", "ONLINE", "OFFLINE"],
-  Lang: [
-    {name: "en", text: "English"},
-    {name: "fr", text: "France"}, 
-    {name: "ru", text: "Russian"},
-    {name: "is", text: "Hebrew"},
-    {name: "kr", text: "한국어"}
+  topMenu: [
+    {name: "견적문의", url: ""},
+    {name: "입찰시스템", url: ""}, 
+    {name: "공장찾기", url: ""},
+    {name: "지원사업공고", url: ""},
+    {name: "고객지원", url: ""}
   ],
   RecordingStorage: [
     {name: "pc", text: "PC"},
