@@ -1,27 +1,32 @@
 @font-face {
-  font-family: KoPubWorldDotum;
+  font-family: NotoSansKRThin;
+  font-weight: 100;
+  src: url("/public/font/NotoSansKR-Thin.otf") format("opentype");
+}
+@font-face {
+  font-family: NotoSansKRLight;
   font-weight: 300;
-  src: url("/public/font/KoPubWorld-Dotum-Light.ttf") format("ttf");
+  src: url("/public/font/NotoSansKR-Light.otf") format("opentype");
 }
 @font-face {
-  font-family: KoPubWorldDotum;
+  font-family: NotoSansKRRegular;
   font-weight: 400;
-  src: url("/public/font/KoPubWorld-Dotum-Light.ttf") format("ttf");
+  src: url("/public/font/NotoSansKR-Regular.otf") format("opentype");
 }
 @font-face {
-  font-family: KoPubWorldDotum;
+  font-family: NotoSansKRMedium;
   font-weight: 500;
-  src: url("/public/font/KoPubWorld-Dotum-Medium.ttf") format("ttf");
+  src: url("/public/font/NotoSansKR-Medium.otf") format("opentype");
 }
 @font-face {
-  font-family: KoPubWorldDotum;
-  font-weight: 600;
-  src: url("/public/font/KoPubWorld-Dotum-Medium.ttf") format("ttf");
-}
-@font-face {
-  font-family: KoPubWorldDotum;
+  font-family: NotoSansKRBold;
   font-weight: 700;
-  src: url("/public/font/KoPubWorld-Dotum-Bold.ttf") format("ttf");
+  src: url("/public/font/NotoSansKR-Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: NotoSansKRBlack;
+  font-weight: 900;
+  src: url("/public/font/NotoSansKR-Black.otf") format("opentype");
 }
 
 :root {
@@ -57,7 +62,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'KoPubWorldDotum';
+  font-family: 'NotoSansKRRegular';
   font-size: inherit;
   font-weight: inherit;
   white-space: nowrap;
@@ -107,7 +112,7 @@ input {
 input::placeholder{
   color: #989899;
   font-size: 16px;
-  font-family: 'KoPubWorldDotum';
+  font-family: 'NotoSansKRRegular';
 }
 button {
   border: none;
