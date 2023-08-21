@@ -1,6 +1,5 @@
 import { Layout_main } from '@/components/Layout'
 import '@/lib/styles/globals.css'
-
 export default function App({ Component, pageProps }) {
 
   const getLayout = Component.getLayout || (page => (

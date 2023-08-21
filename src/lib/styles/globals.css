@@ -1,33 +1,4 @@
-@font-face {
-  font-family: NotoSansKRThin;
-  font-weight: 100;
-  src: url("/public/font/NotoSansKR-Thin.otf") format("opentype");
-}
-@font-face {
-  font-family: NotoSansKRLight;
-  font-weight: 300;
-  src: url("/public/font/NotoSansKR-Light.otf") format("opentype");
-}
-@font-face {
-  font-family: NotoSansKRRegular;
-  font-weight: 400;
-  src: url("/public/font/NotoSansKR-Regular.otf") format("opentype");
-}
-@font-face {
-  font-family: NotoSansKRMedium;
-  font-weight: 500;
-  src: url("/public/font/NotoSansKR-Medium.otf") format("opentype");
-}
-@font-face {
-  font-family: NotoSansKRBold;
-  font-weight: 700;
-  src: url("/public/font/NotoSansKR-Bold.otf") format("opentype");
-}
-@font-face {
-  font-family: NotoSansKRBlack;
-  font-weight: 900;
-  src: url("/public/font/NotoSansKR-Black.otf") format("opentype");
-}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
   --color-blue1: #53b6ed;
@@ -62,16 +33,18 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'NotoSansKRRegular';
+  font-family: 'Noto Sans KR', sans-serif;
   font-size: inherit;
   font-weight: inherit;
   white-space: nowrap;
   -webkit-tap-highlight-color: transparent;
 }
-
+.defaultFont{
+  font-family: 'Noto Sans KR', sans-serif;
+}
 html, body, #__next {
   height: 100%;
-  color: white;
+  color: black;
   background-color: var(--white);
   font-size: 16px;
   font-weight: 400;
@@ -112,7 +85,7 @@ input {
 input::placeholder{
   color: #989899;
   font-size: 16px;
-  font-family: 'NotoSansKRRegular';
+  font-family: 'Noto Sans KR', sans-serif;
 }
 button {
   border: none;
