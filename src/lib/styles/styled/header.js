@@ -2,15 +2,22 @@ import styled from "@emotion/styled";
 import theme from '../theme'
 
 const Header = styled.header`
-  background-color: var(--white);
+  
   border-left: 1px solid var(--black-sub);
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+  z-index: 1;
+  transition: all 0.15s;
 `
 export const StyledHeader_main = styled(Header)`
+      position: fixed; /* 헤더를 항상 화면 상단에 고정합니다. */
+      top: 0;
+      left: 0;
+      width: 100%;
       display: flex;
       align-items: center;
       height: 60px;
       justify-content: space-between;
+      background-color: ${({mainTop}) => mainTop ? "transparent" : "white"};
     & > div:nth-of-type(1){
       display: flex;
       align-items: center;
@@ -20,6 +27,7 @@ export const StyledHeader_main = styled(Header)`
       /* flex: 1; */
       /* display: flex; */
       /* justify-content: flex-start; */
+      color: ${({mainTop}) => mainTop ? "white" : "black"};
       background-color: transparent;
       padding: 15px 15px;
       & > strong {
@@ -31,6 +39,7 @@ export const StyledHeader_main = styled(Header)`
       /* flex: 1; */
       /* display: flex; */
       /* justify-content: flex-start; */
+      color: ${({mainTop}) => mainTop ? "white" : "black"};
       background-color: transparent;
       padding: 15px 25px;
       & span {
@@ -59,9 +68,11 @@ export const StyledHeader_main = styled(Header)`
       /* flex: 1; */
       /* display: flex; */
       /* justify-content: flex-start; */
+      color: ${({mainTop}) => mainTop ? "white" : "black"};
       background-color: transparent;
       padding: 15px 25px;
       & span {
+        
         font-size: 14px;
       }
       &[data-active=true] {

@@ -8,8 +8,15 @@ const Layout = styled.div`
   width: 100%;
   height: 100%;
   display: grid;
-  overflow: hidden;
-  background-color: var(--black-sub);
+  `
+
+export const StyledLayout_Main = styled(Layout)`
+  padding-top: 60px;
+ 
+`
+export const StyledLayout_Standard = styled(Layout)`
+  /* padding-top: 60px; */
+ 
 `
 
 export const StyledLayout_UnAuth = styled(Layout)`

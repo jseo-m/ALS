@@ -9,6 +9,7 @@ const Page = styled.div`
 `
 
 export const StyleHome = styled(Page)`
+  color: var(--white);
   & > section{
     display: flex;
     justify-content: center;
@@ -53,36 +54,58 @@ export const Dev = styled(Page)`
   }
 `
 
-export const Signin = styled(Page)`
-padding: 30px;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-overflow-y: auto;
-
-& input {
-  color: black;
-}
-& > main {
+export const Styles_Login = styled(Page)`
+  padding: 30px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 640px;
-  padding: 100px 0 60px;
   overflow-y: auto;
 
-  & > section {
-    width: 100%;
+  section{
+    width: 380px;
+    display: grid;
+  }
 
-    &:nth-of-type(3){
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
+  .MuiTextField-root{
+    padding: 5px;
+  }
+  & > section:nth-of-type(1){
+    padding: 50px 0;
+    justify-content: center;
+    & > p {
+      padding: 10px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: 700;
+    }
+    & > span{
+        font-size: 14px;
+        text-align: center;
     }
   }
-}
+  & > section:nth-of-type(2){
+    & > span{
+      color: var(--red-strong);
+      text-align: center;
+      font-size: 12px;
+    }
+    & > button{
+      background-color: var(--black);
+      margin: 20px 0;
+      padding: 10px 0;
+    }
+    & > div:nth-of-type(3){
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+      & > span {
+        font-size: 12px;
+        font-weight: 500;
+      }
+    }
+  }
+
 `
 export const Signup = styled(Page)`
   display: flex;
