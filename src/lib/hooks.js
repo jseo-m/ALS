@@ -32,7 +32,7 @@ export function useModalController(){
 }
 
 export function useRefresh(dupLogin){
-  const {pathname} = useRouter()
+  const {replace, pathname} = useRouter()
   const {setAuth, resetAuth} = useAuth()
 
   useEffect(() => {
@@ -40,6 +40,9 @@ export function useRefresh(dupLogin){
     console.log(refreshToken)
     
     if(refreshToken){
+      setAuth({aToken: "test", name:"홍길동"})
+
+      /*
       axios.unauth.post('getToken', {refreshToken})
       .then(({data: {token, refreshToken, email, name, role, profileURL, distanceUnitYn, tempUnitYn}}) => {
         console.log("rToken: ", email, name, role, profileURL, distanceUnitYn, tempUnitYn)
@@ -59,6 +62,9 @@ export function useRefresh(dupLogin){
         // Cookies.remove('sn')
         // window.location.assign('/unauth/signin')
       })
+      */
+    }else{
+      replace("/")
     }
 
     return () => {
@@ -226,52 +232,17 @@ export function useLogout(){
   return () => {
     console.log("LOGOUT")
     //임시코드
-    api.device.wsConnectUpdateZero();//여기서 업데이트해야할지
-    axios.main.delete('logoutToken')
-    .then(res => console.log("LOGOUT: ", res))
-    .catch(console.error)
+    // axios.main.delete('logoutToken')
+    // .then(res => console.log("LOGOUT: ", res))
+    // .catch(console.error)
 
     Cookies.remove(RT)
-    Cookies.remove('sn')
-    Cookies.remove('uaid')
     resetAuth()
-    location.assign("/unauth/signin")
+    location.assign("/")
   }
 }
 
-// language-change & ltr-rtl-switching
-// 한국어, 영어, 프랑스어, 러시아어, 히브리어
-export function useLocale(){
-  const [dir, setDir] = useState("ltr")
-  const { push, locale, locales, asPath } = useRouter();
-
-  useEffect(() => {
-    if(['he'].includes(locale)){
-      if(document.documentElement.dir !== "rtl") document.documentElement.dir = "rtl"
-      if(dir !== "rtl") setDir("rtl")
-    }else{
-      if(document.documentElement.dir !== "ltr") document.documentElement.dir = "ltr"
-      if(dir !== "ltr") setDir("ltr")
-    }
-  }, [locale])
-
-  function t(word, params){
-    let w = require(`public/locales/${locale}/index.json`)[word]
-    
-    for(let key in params) w = w.replace('{{' + key + '}}', params[key])
-
-    return w
-  }
-
-  return {
-    dir,
-    locale,
-    locales,
-    setLocale: (locale) => push(asPath, asPath, {locale}),
-    t
-  }
-}
-
+/*
 export function useWebView() {
   const {pathname} = useRouter()
   return {
@@ -355,7 +326,7 @@ export const useRandom = () => {
 
 /**
  * @desc setTimeout, setInterval 관리 훅
- */
+ 
 export const useTimer = () => {
   const ConstantsRef = useRef({
     timeout: "timeout",
@@ -438,3 +409,4 @@ export function useAdmCodeList(type){
 
   return Array.isArray(codeList) ? codeList : []
 }
+*/

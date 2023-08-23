@@ -1,12 +1,26 @@
 import Constants from "@/lib/Constants"
+import { useLogout } from "@/lib/hooks"
+import { useAuth } from "@/lib/store"
 import { StyledHeader_main } from "@/lib/styles"
+import { Avatar } from "@mui/material"
+import Cookies from "js-cookie"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 
 export const Header_main = ({isMainTop}) =>{
-  const {push} = useRouter()
+  const {push, replace} = useRouter()
   const mainTop = !!isMainTop
-  console.log(mainTop)
+
+  const {aToken, setAuth} = useAuth()
+  const logout = useLogout()
+
+  function temp_login(){
+    Cookies.set("refreshToken", "testRefreshToken")
+    setAuth({aToken: "test", name:"홍길동"})
+    replace("/")
+  }
+
+
   return(
     <StyledHeader_main mainTop={mainTop}>
       <div>
@@ -24,12 +38,33 @@ export const Header_main = ({isMainTop}) =>{
         </button>
       </div>
       <div>
-        <button key={`menu-login`} name="menu" onClick={() => push("/nonAuth/login")}>
-          <span>로그인</span>
-        </button>
-        <button key={`menu-join`} name="menu" onClick={() => push("/dev")}>
-          <span>회원가입</span>
-        </button>
+        {aToken === "" ? (
+        <>
+          <button key={`menu-login-temp`} name="menu" onClick={() => temp_login()}>
+            <span>임시로그인</span>
+          </button>
+          <button key={`menu-login`} name="menu" onClick={() => push("/nonAuth/login")}>
+            <span>로그인</span>
+          </button>
+          <button key={`menu-join`} name="menu" onClick={() => push("/dev")}>
+            <span>회원가입</span>
+          </button>
+        </> ) : (
+        <>
+          <button key={`menu-login-temp`} name="menu" onClick={() => logout()}>
+            <span>임시로그아웃</span>
+          </button>
+          <button key={`menu-login`} name="menu" onClick={() => alert('개발중')}>
+            <span>기업회원전환</span>
+          </button>
+          <button key={`profile`} name="avatar" onClick={() => alert('개발중')}>
+            <Avatar>문</Avatar>
+          </button>
+          <button key={`alert`} name="alert" onClick={() => alert('개발중')}>
+            <img src="/svg/notificationsFilled.svg"></img>
+          </button>
+        </>
+        )}
       </div>
       
     </StyledHeader_main>

@@ -32,7 +32,7 @@ export function Layout_main({children}) {
 						<main>{children}</main>
 					</div>
 				</StyledLayout_Main>
-				</div>
+      </div>
     )
 }
 export function Layout_Standard({children}) {

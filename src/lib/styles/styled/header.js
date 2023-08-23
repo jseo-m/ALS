@@ -46,12 +46,11 @@ export const StyledHeader_main = styled(Header)`
         font-size: 14px;
       }
       &[data-active=true] {
-        color: var(--orange-main);
+        color: var(--blue-main);
       }
       &:hover {
-        background-color: black;
         * {
-          color: var(--orange-main);
+          color: var(--blue-main);
         } 
       }
       &:active {
@@ -76,17 +75,24 @@ export const StyledHeader_main = styled(Header)`
         font-size: 14px;
       }
       &[data-active=true] {
-        color: var(--orange-main);
+        color: var(--blue-main);
       }
       &:hover {
-        background-color: black;
         * {
-          color: var(--orange-main);
+          color: var(--blue-main);
         } 
       }
       &:active {
         background-color: transparent;
       }
+    }
+    & > button[name="avatar"] {
+      background-color: transparent;
+      padding: 15px 15px;
+    }
+    & > button[name="alert"] {
+      background-color: transparent;
+      padding: 15px 25px 15px 15px;
     }
   }
 `

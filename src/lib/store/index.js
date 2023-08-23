@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import Cookies from "js-cookie";
-import {produce} from "immer";
+// import {produce} from "immer";
 
 // 로그인 유저에 대한 정보를 저장하는 훅
 export const useAuth = create(set => ({

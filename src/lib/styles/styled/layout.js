@@ -16,6 +16,7 @@ export const StyledLayout_Main = styled(Layout)`
 `
 export const StyledLayout_Standard = styled(Layout)`
   /* padding-top: 60px; */
+  background-color: #f9fafc;
  
 `
 
