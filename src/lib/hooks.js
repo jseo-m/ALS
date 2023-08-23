@@ -64,7 +64,7 @@ export function useRefresh(dupLogin){
       })
       */
     }else{
-      replace("/")
+      if(pathname !="/dev") replace("/")
     }
 
     return () => {

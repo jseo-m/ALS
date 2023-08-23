@@ -9,7 +9,7 @@ const Header = styled.header`
   transition: all 0.15s;
 `
 export const StyledHeader_main = styled(Header)`
-      position: fixed; /* 헤더를 항상 화면 상단에 고정합니다. */
+      position: fixed; /* 헤더를 항상 화면 상단에 고정. */
       top: 0;
       left: 0;
       width: 100%;

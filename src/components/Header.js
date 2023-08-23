@@ -14,11 +14,7 @@ export const Header_main = ({isMainTop}) =>{
   const {aToken, setAuth} = useAuth()
   const logout = useLogout()
 
-  function temp_login(){
-    Cookies.set("refreshToken", "testRefreshToken")
-    setAuth({aToken: "test", name:"홍길동"})
-    replace("/")
-  }
+  
 
 
   return(
@@ -40,9 +36,6 @@ export const Header_main = ({isMainTop}) =>{
       <div>
         {aToken === "" ? (
         <>
-          <button key={`menu-login-temp`} name="menu" onClick={() => temp_login()}>
-            <span>임시로그인</span>
-          </button>
           <button key={`menu-login`} name="menu" onClick={() => push("/nonAuth/login")}>
             <span>로그인</span>
           </button>

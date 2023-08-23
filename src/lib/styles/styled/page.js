@@ -50,6 +50,7 @@ export const Dev = styled(Page)`
     overflow-y: auto;
     & > div{
       width: 100%;
+      margin: 5px 0;
     }
   }
 `

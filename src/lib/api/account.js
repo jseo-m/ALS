@@ -1,6 +1,10 @@
 import {axios} from '@/lib/api'
 import { useQuery, useMutation } from '@tanstack/react-query'
 
+// 로그인
+export const login = async (data) => axios.serverless.post('api/account', data).then(res => res.data)
+export const useLogin = (options) => useMutation(login, options)
+
 // 회원가입
 export const signUp = async (data) => axios.unauth.post('web/uaUser/signup', data).then(res => res.data)
 export const useSignUp = (options) => useMutation(signUp, options)
@@ -9,9 +13,6 @@ export const useSignUp = (options) => useMutation(signUp, options)
 export const socialSignUp = async (data) => axios.unauth.post('web/uaUser/socialSignup', data).then(res => res.data)
 export const useSocialSignUp = (options) => useMutation(socialSignUp, options)
 
-// 로그인
-export const signIn = async (data) => axios.unauth.post('authenticate', data).then(res => res.data)
-export const useSignin = (options) => useMutation(signIn, options)
 
 // 로그아웃
 export const signOut = async (data) => axios.unauth.delete('logoutToken', data).then(res => res.data)

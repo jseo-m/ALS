@@ -10,10 +10,9 @@ import * as account from './account'
 // import * as cs from './cs'
 
 export const axios = {
+  serverless: Axios.create({baseURL: "http://localhost:3000/", withCredentials: false}),
   unauth: Axios.create({baseURL: Constants.Base.baseUrl, withCredentials: false}),
   main: Axios.create({baseURL: Constants.Base.baseUrl, withCredentials: false}),
-  admin: Axios.create({baseURL: Constants.Base.adminUrl, withCredentials: false}),
-  vod: Axios.create({baseURL: Constants.Base.vodserver, withCredentials: false}),
 }
 
 // axios.main.interceptors.request.use(
