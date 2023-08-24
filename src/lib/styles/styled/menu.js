@@ -115,60 +115,8 @@ export const StyledMenu_Select = styled.div`
     }
   }
 `
-
-export const StyledMenu_DropDown = styled.div`
-  position: relative;
-  min-width: 70px;
-  & > header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+export const StyledMenu_popProfile = styled.section`
+  & ul {
     padding: 10px;
-    cursor: pointer;
-    & > span {
-      flex: 1;
-    }
-    &:hover {
-      color: var(--blue-main);
-    }
-  }
-  & > footer {
-    position: absolute;
-    z-index: 10;
-    top: calc(100%);
-    left: 50%;
-    transform: translateX(-50%);
-    min-width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-rows: auto;
-    background-color: black;
-    visibility: hidden;
-    opacity: 0;
-    box-shadow: 0 0 3px black;
-    transition: 0.1s;
-    margin-top: -10px;
-    max-height: 100px;
-    overflow: auto;
-    &[data-show="true"] {
-      opacity: 1;
-      visibility: visible;
-      margin-top: 0;
-    }
-    & > button {
-      background-color: black;
-      border: 1px solid var(--gray-main);
-      border-bottom: none;
-      cursor: pointer;
-      height: 30px;
-      color: white;
-      &:hover {
-        background-color: var(--black-main);
-        color: var(--blue-main);
-      }
-      &:last-of-type {
-        border-bottom: 1px solid var(--gray-main);
-      }
-    }
   }
 `
