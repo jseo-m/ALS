@@ -26,10 +26,18 @@ export default {
     {name: "지원사업공고", url: ""},
     {name: "고객지원", url: ""}
   ],
-  RecordingStorage: [
-    {name: "pc", text: "PC"},
-    {name: "cloud", text: "Cloud"},
+  myMenu: [
+    {name: "MY 활동", url: "", type: "group"},
+    {name: "견적문의", url: "", img:"/svg/estimate.svg"},
+    {name: "입찰시스템", url: "", img:"/svg/bid.svg"}, 
+    {name: "문의게시판", url: "", img:"/svg/inquiry.svg"},
+    {name: "평점", url: "", img:"/svg/starHalfFilled.svg"},
+    {name: "MY 정보", url: "", type: "group"},
+    {name: "회원정보 확인/수정", url: "", img:"/svg/personFilled.svg"},
+    {name: "알림설정", url: "", img:"/svg/notificationsFilled.svg"}, 
+    {name: "기업회원 전환하기", url: "", img:"/svg/changeFilled.svg"},
   ],
+  
   AlertSenders: [
     {name: "ALL", text: "전체"},
     {name: "DEVICE", text: "단말알림"},

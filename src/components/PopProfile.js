@@ -1,9 +1,11 @@
 import { Divider, Menu, MenuItem } from "@mui/material";
+import { useRouter } from "next/router";
 import { useState } from "react";
 
 export default function PopProfile({anchorEl, setAnchorEl}){
   
   const open = Boolean(anchorEl);
+  const {push} = useRouter()
   return(
     <>
     <Menu 
@@ -67,7 +69,7 @@ export default function PopProfile({anchorEl, setAnchorEl}){
       </section>
       <Divider />
       <section className="popMenu">
-        <MenuItem >
+        <MenuItem onClick={() => push("/mypage/estimate")}>
           <img src="/svg/accountCircleFilled.svg"/> 
           <span>마이페이지</span>
         </MenuItem>

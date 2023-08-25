@@ -35,11 +35,9 @@ export const StyleHome = styled(Page)`
     }
   }
 `
-
 export const Dev = styled(Page)`
   padding: 30px;
   display: flex;
-  justify-content: center;
   align-items: center;
   & > main {
     display: flex;
@@ -151,4 +149,8 @@ export const Signup = styled(Page)`
     }
   }
 `
-
+export const StylesPage_Estimate = styled(Page)`
+  padding: 30px;
+  font-size: 16px;
+  font-weight: 500;
+`

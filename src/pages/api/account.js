@@ -15,7 +15,9 @@ export default function handler(req, res) {
   const {action} = req.body
 
   switch(action){
-    case "login" : login(req,res)
+    case "login" : 
+      login(req,res)
+      break
     default : res.status(400).json({ error: 'Invalid action' });
   }
   

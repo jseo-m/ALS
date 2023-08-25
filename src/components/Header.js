@@ -6,6 +6,8 @@ import { Avatar } from "@mui/material"
 import Cookies from "js-cookie"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
+import PopAlert from "./PopAlert"
+import PopProfile from "./PopProfile"
 
 export const Header_main = ({isMainTop}) =>{
   const {push, replace} = useRouter()
@@ -14,7 +16,8 @@ export const Header_main = ({isMainTop}) =>{
   const {aToken, setAuth} = useAuth()
   const logout = useLogout()
 
-  
+  const [anchorProfile, setAnchorProfile] = useState(null)
+  const [anchorAlert, setAnchorAlert] = useState(null)
 
 
   return(
@@ -50,12 +53,14 @@ export const Header_main = ({isMainTop}) =>{
           <button key={`menu-login`} name="menu" onClick={() => alert('개발중')}>
             <span>기업회원전환</span>
           </button>
-          <button key={`profile`} name="avatar" onClick={() => alert('개발중')}>
+          <button key={`profile`} name="avatar" onClick={(e) => setAnchorProfile(e.currentTarget)}>
             <Avatar>문</Avatar>
           </button>
-          <button key={`alert`} name="alert" onClick={() => alert('개발중')}>
+          <button key={`alert`} name="alert" onClick={(e) => setAnchorAlert(e.currentTarget)}>
             <img src="/svg/notificationsFilled.svg"></img>
           </button>
+          <PopProfile anchorEl={anchorProfile} setAnchorEl={setAnchorProfile}/>
+          <PopAlert anchorEl={anchorAlert} setAnchorEl={setAnchorAlert}/>
         </>
         )}
       </div>

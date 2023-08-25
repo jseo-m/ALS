@@ -8,16 +8,27 @@ const Layout = styled.div`
   width: 100%;
   height: 100%;
   display: grid;
+  padding-top: 60px;
   `
 
 export const StyledLayout_Main = styled(Layout)`
-  padding-top: 60px;
  
 `
 export const StyledLayout_Standard = styled(Layout)`
   /* padding-top: 60px; */
   background-color: #f9fafc;
- 
+  
+`
+export const StyledLayout_Mypage = styled(Layout)`
+  display: flex;
+  & > nav{
+    flex: 1 auto;
+    
+  }
+  & > main{
+    flex: 1 auto;
+  }
+  
 `
 
 export const StyledLayout_UnAuth = styled(Layout)`

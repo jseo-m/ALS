@@ -1,6 +1,7 @@
-import { StyledLayout_Main, StyledLayout_Standard } from "@/lib/styles";
+import { StyledLayout_Main, StyledLayout_Mypage, StyledLayout_Standard } from "@/lib/styles";
 import { Header_main } from "./Header";
 import { useEffect, useState } from "react";
+import { Nav_mypage } from "./Nav";
 
 export function Layout_main({children}) {
 	const [isMainTop, setIsMainTop] = useState(true);
@@ -27,10 +28,8 @@ export function Layout_main({children}) {
 						<source src="https://cdn.steelboso.com/common/file/landing/landing.mp4" type='video/mp4'/>
 					</video>
 				<StyledLayout_Main>
-					<div>
 						<Header_main isMainTop={isMainTop}/>
 						<main>{children}</main>
-					</div>
 				</StyledLayout_Main>
       </div>
     )
@@ -39,10 +38,18 @@ export function Layout_Standard({children}) {
 
     return(
 			<StyledLayout_Standard>
-					<div>
-						<Header_main />
-						<main>{children}</main>
-					</div>
+        <Header_main />
+        <main>{children}</main>
 			</StyledLayout_Standard>
+    )
+}
+export function Layout_Mypage({children}) {
+
+    return(
+			<StyledLayout_Mypage>
+        <Header_main />
+        <Nav_mypage />
+        <main>{children}</main>
+			</StyledLayout_Mypage>
     )
 }

@@ -36,7 +36,7 @@ export const InputVer1_Mui = ({required, label, placeholder, defaultValue, input
         <TextField
         fullWidth 
         {...rest}
-        type={(inputType === "eyes" && inputHide) && "password"}
+        type={(inputType === "eyes" && inputHide) ? "password" : "text"}
         required={required} 
         label={inputType === "beforeSelect" ? null : label}
         placeholder={placeholder || label}
@@ -44,11 +44,11 @@ export const InputVer1_Mui = ({required, label, placeholder, defaultValue, input
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
-              <IconButton // onClick={handleTogglePasswordVisibility}
+              <IconButton onClick={()=> setInputHide(prev => !prev)}
                 edge="end"
               >
                 {inputType === "eyes" && 
-                <img src={inputHide ? "/svg/icon_eye_close.svg" : "/svg/icon_eye_open.svg"} onClick={()=> setInputHide(prev => !prev)}/>}
+                <img src={inputHide ? "/svg/icon_eye_close.svg" : "/svg/icon_eye_open.svg"} />}
               </IconButton>
             </InputAdornment>
           ),
