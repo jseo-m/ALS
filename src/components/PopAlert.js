@@ -4,7 +4,7 @@ import { Divider, Menu, MenuItem } from "@mui/material";
 export default function PopAlert({anchorEl, setAnchorEl}){
   const open = Boolean(anchorEl);
   const {isLoading, data} = api.user.useAlertList()
-  if(isLoading) return (<>"loading..."</>)
+  if(isLoading) return (<>loading...</>)
   const alertData = data.data
   return(
     <>
@@ -80,8 +80,8 @@ export default function PopAlert({anchorEl, setAnchorEl}){
       </section>
         <Divider />
       <section className="alertBody">
-        {alertData?.map(v => (
-          <MenuItem >
+        {alertData?.map((v,i) => (
+          <MenuItem key={i}>
             <p>{v.date}</p>
             <p>{v.title}</p>
             <p>{v.contents}</p>

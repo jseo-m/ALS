@@ -21,7 +21,7 @@ export function TextCard(){
       <Divider/>
       <section name="contents">
         <div>
-          {estSubItem.map(item => <span>{item.title}  {item.key}</span>)}
+          {estSubItem.map((item,i) => <span key={i}>{item.title}  {item.key}</span>)}
         </div>
         <div>필터하우징 견적받고 싶습니다. 인증까지 가능한 제작업체가 있을까요? 필터하우징 견적받고 싶습니다.   필터하우징 견적받고 싶습니다.  필터하우징 견적받고 싶습니다.   필터하우징 견적받고 싶습니다.  필터하우징 견적받고 싶습니다. 인증까지 가능한 제작업체가 있을까요? 필터하우징 견적받고 싶습니다.</div>
       </section>
