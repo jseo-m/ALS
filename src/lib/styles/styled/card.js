@@ -46,3 +46,27 @@ export const StylesCard_Text = styled(card)`
     }
   }
 `
+export const StylesCard_DashboardCard = styled(card)`
+  height: 180px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 12px 8px;
+  border: solid 0.2px #6b7280;
+  gap: 5px;
+  cursor: pointer;
+  & > div:nth-of-type(2) {
+    text-align: center;
+    & > p:nth-of-type(1){
+      font-size: 12px;
+    }
+    & > p:nth-of-type(2){
+      font-size: 14px;
+    }
+  }
+  & > div:nth-of-type(3) {
+    font-size: 10px;
+  }
+`

@@ -1,9 +1,9 @@
 import { TextCard } from "@/components/CardSection";
-import { StylesPage_Estimate } from "@/lib/styles";
+import { StylesPage_Mypage } from "@/lib/styles";
 
 export default function EstimateList(){
     return(
-      <StylesPage_Estimate>
+      <StylesPage_Mypage>
         <section name="estList">
           <h1>견적문의</h1>
           <TextCard />
@@ -11,6 +11,6 @@ export default function EstimateList(){
           <TextCard />
           <TextCard />
         </section>
-      </StylesPage_Estimate>
+      </StylesPage_Mypage>
     )
 }

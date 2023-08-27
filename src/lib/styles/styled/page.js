@@ -149,8 +149,16 @@ export const Signup = styled(Page)`
     }
   }
 `
-export const StylesPage_Estimate = styled(Page)`
+export const StylesPage_Mypage = styled(Page)`
   padding: 30px;
   font-size: 16px;
   font-weight: 500;
+  & > section[name="dashCard"]{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      /* grid-auto-rows: 50px; */
+      gap: 50px;
+      padding: 20px;
+  }
 `
+

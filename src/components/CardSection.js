@@ -1,5 +1,6 @@
-import { StylesCard_Text } from "@/lib/styles/styled/card";
+import { StylesCard_DashboardCard, StylesCard_Text } from "@/lib/styles/styled/card";
 import { Button, Divider } from "@mui/material";
+import { useRouter } from "next/router";
 
 const estSubItem = [
   {title: "견적요청기한", key: "estDate"},
@@ -27,5 +28,25 @@ export function TextCard(){
       </section>
       
     </StylesCard_Text>
+  )
+}
+
+export function DashBoardCard({menuItem}){
+  const {push} = useRouter()
+
+  return(
+    <StylesCard_DashboardCard onClick={() => push(menuItem.url)}>
+      <div>
+        <img src={menuItem.img} />
+      </div>
+      <div>
+        <p>{menuItem.enname}</p>
+        <p>{menuItem.name}</p>
+      </div>
+      <div>
+        <p>회원님의 견적문의 게시물을 관리하는 공간입니다</p>
+      </div>
+      
+    </StylesCard_DashboardCard>
   )
 }

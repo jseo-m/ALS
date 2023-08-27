@@ -69,7 +69,7 @@ export default function PopProfile({anchorEl, setAnchorEl}){
       </section>
       <Divider />
       <section className="popMenu">
-        <MenuItem onClick={() => push("/mypage/estimate")}>
+        <MenuItem onClick={() => push("/mypage")}>
           <img src="/svg/accountCircleFilled.svg"/> 
           <span>마이페이지</span>
         </MenuItem>

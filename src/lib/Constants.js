@@ -37,6 +37,14 @@ export default {
     {name: "알림설정", url: "", img:"/svg/notificationsFilled.svg"}, 
     {name: "기업회원 전환하기", url: "", img:"/svg/changeFilled.svg"},
   ],
+  dashCard: [
+    {enname: "Quote Contact", name: "견적문의", url: "/mypage/estimate", img:"/svg/calculator.svg", contents:"회원님의 견적문의 게시물을 관리하는 공간입니다"},
+    {enname: "Bidding system", name:"입찰", url: "", img:"/svg/diploma.svg", contents:"회원님의 입찰을 관리하는 공간입니다"},
+    {enname: "Grade", name:"평점", url: "", img:"/svg/confetti.svg", contents:"회원님의 평점을 관리하는 공간입니다"},
+    {enname: "Profile", name:"회원정보", url: "", img:"/svg/user-add.svg", contents:"회원님의 개인정보를 확인/수정 관리하는 공간입니다"},
+    {enname: "Alarm", name:"알람설정", url: "", img:"/svg/bell-ring.svg", contents:"회원님의 알람설정을 관리하는 공간입니다"},
+    {enname: "Transform", name:"기업회원 전환하기", url: "", img:"/svg/refresh.svg", contents:"일반회원에서 기업회원으로 전환할 수 있는 공간입니다"},
+  ],
   
   AlertSenders: [
     {name: "ALL", text: "전체"},
