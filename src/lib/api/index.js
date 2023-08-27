@@ -10,7 +10,7 @@ import * as user from './user'
 // import * as manage from './manage'
 // import * as cs from './cs'
 
-const baseurl = "https://msumer-7fw1of6g9-jseo-m.vercel.app/" // 테스트 배포용
+const baseurl = "https://msumer.vercel.app/" // 테스트 배포용
 // const baseurl = "http://localhost:3000/"
 export const axios = {
   serverless: Axios.create({baseURL: baseurl, withCredentials: false}),
