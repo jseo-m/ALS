@@ -34,7 +34,7 @@ export default {
     {name: "평점", url: "", img:"/svg/starHalfFilled.svg"},
     {name: "MY 정보", url: "", type: "group"},
     {name: "회원정보 확인/수정", url: "", img:"/svg/personFilled.svg"},
-    {name: "알림설정", url: "", img:"/svg/notificationsFilled.svg"}, 
+    {name: "알림설정", url: "/mypage/alertSetting", img:"/svg/notificationsFilled.svg"}, 
     {name: "기업회원 전환하기", url: "", img:"/svg/changeFilled.svg"},
   ],
   dashCard: [
