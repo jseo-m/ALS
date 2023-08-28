@@ -1,3 +1,4 @@
+import { Icons_CustomStep } from "@/components/Icons";
 import { InputVer1_Mui } from "@/components/Input";
 import PopAlert from "@/components/PopAlert";
 import PopProfile from "@/components/PopProfile";
@@ -38,6 +39,7 @@ export default function DevPage(){
       <PopProfile anchorEl={anchorProfile} setAnchorEl={setAnchorProfile}/>
       <PopAlert anchorEl={anchorAlert} setAnchorEl={setAnchorAlert}/>
       </main>
+      <Icons_CustomStep></Icons_CustomStep>
     </Dev>
   )
 }

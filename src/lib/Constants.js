@@ -28,7 +28,7 @@ export default {
   ],
   myMenu: [
     {name: "MY 활동", url: "", type: "group"},
-    {name: "견적문의", url: "", img:"/svg/estimate.svg"},
+    {name: "견적문의", url: "/mypage/estimate", img:"/svg/estimate.svg"},
     {name: "입찰시스템", url: "", img:"/svg/bid.svg"}, 
     {name: "문의게시판", url: "", img:"/svg/inquiry.svg"},
     {name: "평점", url: "", img:"/svg/starHalfFilled.svg"},

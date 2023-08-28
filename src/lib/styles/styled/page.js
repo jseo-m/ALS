@@ -30,6 +30,8 @@ export const StyleHome = styled(Page)`
       & > div:nth-of-type(2){
         & > button {
           margin: 5px;
+          color: var(--white);
+          border: 1px solid var(--white);
         }
       }
     }
@@ -153,12 +155,18 @@ export const StylesPage_Mypage = styled(Page)`
   padding: 30px;
   font-size: 16px;
   font-weight: 500;
+  & > hr {
+    margin: 10px 20px;
+  }
   & > section[name="dashCard"]{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       /* grid-auto-rows: 50px; */
       gap: 50px;
-      padding: 20px;
+      padding: 40px 20px;
+  }
+  & > section[name="dashProgress"]{
+      margin: 40px 20px;
   }
 `
 

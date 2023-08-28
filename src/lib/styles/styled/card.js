@@ -9,7 +9,14 @@ export const StylesCard_Text = styled(card)`
   border-radius: 3px;
   border: solid 0.2px #b8b9b9;
   margin-bottom: 10px;
-  
+  cursor: pointer;
+  &:hover {
+      background-color: #e0e0e0;
+  }
+  &:active {
+    background-color: #c0c0c0;
+  }
+
   & > hr {
     padding: 5px 0;
   }
@@ -69,4 +76,35 @@ export const StylesCard_DashboardCard = styled(card)`
   & > div:nth-of-type(3) {
     font-size: 10px;
   }
+`
+export const StylesCard_ProgressCard = styled(card)`
+  height: 190px;
+  /* flex-grow: 1; */
+  display: flex;
+  border: solid 0.2px #6b7280;
+  padding: 20px;
+  gap: 50px;
+
+  & div[name="progTitle"]{
+    padding-bottom: 20px;
+    & > span{
+      position: relative;
+      &::after{
+        content:"";
+        width: 100%;
+        background-color: black;
+        height: 3px;
+        position: absolute;
+        top: 110%;
+        left: 0;
+      }
+    }
+  }
+  & div[name="progStep"]{
+    display: flex;
+  }
+  & div[name="progRating"]{
+    padding-top: 20px;
+  }
+ 
 `

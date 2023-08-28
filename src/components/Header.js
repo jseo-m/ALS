@@ -14,7 +14,7 @@ export const Header_main = ({isMainTop}) =>{
   const mainTop = !!isMainTop
 
   const {aToken, setAuth} = useAuth()
-  const logout = useLogout()
+  
 
   const [anchorProfile, setAnchorProfile] = useState(null)
   const [anchorAlert, setAnchorAlert] = useState(null)
@@ -47,9 +47,6 @@ export const Header_main = ({isMainTop}) =>{
           </button>
         </> ) : (
         <>
-          <button key={`menu-login-temp`} name="menu" onClick={() => logout()}>
-            <span>임시로그아웃</span>
-          </button>
           <button key={`menu-login`} name="menu" onClick={() => alert('개발중')}>
             <span>기업회원전환</span>
           </button>

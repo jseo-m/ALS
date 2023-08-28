@@ -1,3 +1,4 @@
+import { useLogout } from "@/lib/hooks";
 import { Divider, Menu, MenuItem } from "@mui/material";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -6,6 +7,8 @@ export default function PopProfile({anchorEl, setAnchorEl}){
   
   const open = Boolean(anchorEl);
   const {push} = useRouter()
+  const logout = useLogout()
+
   return(
     <>
     <Menu 
@@ -57,6 +60,7 @@ export default function PopProfile({anchorEl, setAnchorEl}){
           '& .logout':{
             display: 'flex',
             justifyContent: 'center',
+            cursor: 'pointer'
           },
         },
       }}
@@ -87,7 +91,7 @@ export default function PopProfile({anchorEl, setAnchorEl}){
         </div>
       </section>
       <Divider />
-      <section className="logout">
+      <section className="logout" onClick={() => logout()}>
         <img src="/svg/logoutFilled.svg"/>
         <span>로그아웃</span>
       </section>

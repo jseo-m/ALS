@@ -161,3 +161,21 @@ export const StyledIcon_Loading = styled.div`
     }
   }
 `
+export const StyledIcon_CustomStep = styled.div`
+  display: grid;
+  width: 56px;
+  & > div:nth-of-type(1){
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    border-radius: 50%;
+    height: 56px;
+    margin-bottom: 20px;
+    background-color: ${({fillColor}) => fillColor};
+    color: white;
+  }
+  & > div:nth-of-type(2){
+    font-size: 12px;
+    text-align: center;
+  }
+`
