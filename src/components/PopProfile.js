@@ -77,7 +77,7 @@ export default function PopProfile({anchorEl, setAnchorEl}){
           <img src="/svg/accountCircleFilled.svg"/> 
           <span>마이페이지</span>
         </MenuItem>
-        <MenuItem >
+        <MenuItem onClick={() => push("/mypage/alertSetting")}>
           <img src="/svg/accountCircleFilled.svg"/>
           <span>알림설정</span>
         </MenuItem>
