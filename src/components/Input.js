@@ -4,13 +4,20 @@ import Visibility from 'public/svg/icon_eye_open.svg';
 import { useState } from "react";
 // import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-export const InputVer1_Mui = ({required, label, placeholder, defaultValue, inputType, hasButton, ...rest}) =>{
+export const InputVer1_Mui = ({required, label, placeholder, defaultValue, inputType, hasButton, onChange, ...rest}) =>{
   const [inputHide, setInputHide] = useState(true)
 
   const [age, setAge] = useState('');
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    console.log(event.target.tagName)
+    // const element = document.querySelectorAll(`[name="${event.target.name}"]`)
+    // let value = '';
+    // element.forEach((element) => {
+    //   console.log(element)
+    //   value += element.value;
+    // });
+    // onChange({field: event.target.name, value: value})
   };
   return(
     <StyledInputVer1_Mui>
@@ -22,13 +29,12 @@ export const InputVer1_Mui = ({required, label, placeholder, defaultValue, input
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value={age}
+              name={rest.name}
+              // value={age}
               label="Age"
               onChange={handleChange}
             >
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
+              {rest.selects.map(select => <MenuItem key={select.value} value={select.value}>{select.name}</MenuItem>)}
             </Select>
           </FormControl>
         </div>
@@ -41,7 +47,10 @@ export const InputVer1_Mui = ({required, label, placeholder, defaultValue, input
           required={required} 
           label={inputType === "beforeSelect" ? null : label}
           placeholder={placeholder || label}
-          // defaultValue={defaultValue || ""}
+          onChange={handleChange}
+          InputLabelProps={{
+            shrink: true,
+          }}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
@@ -63,9 +72,7 @@ export const InputVer1_Mui = ({required, label, placeholder, defaultValue, input
               label="Age"
               onChange={handleChange}
             >
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
+              {rest.selects.map(select => <MenuItem key={select.value} value={select.value}>{select.name}</MenuItem>)}
             </Select>
           </FormControl>
         </div>

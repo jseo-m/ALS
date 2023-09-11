@@ -150,23 +150,7 @@ img.gsc_img_32_gray_main.gsc_hover:hover {
   font-family: 'Noto Sans KR', sans-serif;
 }
 
-/* .MuiInputLabel-root {
-  position: absolute;
-  transform: translate(14px, 14px);
-  pointerEvents: none; 
-} */
-.MuiInputBase-input {
-  padding-right: 50%;
-}
-.MuiInputBase-input::placeholder{
-  position: absolute;
-  top: 25%;
-  right: 30%;
-  width: 100px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
+
 
 /* gcc prevent children from being cliked */
 .gcc-no-children-click * {

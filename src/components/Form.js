@@ -8,8 +8,8 @@ export function useForm() {
   const getData = () => ({...dataRef.current})
 
   function setData ({field, value}) {
-    checkType.field(field)
-    checkType.value(value)
+    // checkType.field(field)
+    // checkType.value(value)
     dataRef.current[field] = value
   }
 

@@ -45,6 +45,22 @@ export default {
     {enname: "Alarm", name:"알람설정", url: "", img:"/svg/bell-ring.svg", contents:"회원님의 알람설정을 관리하는 공간입니다"},
     {enname: "Transform", name:"기업회원 전환하기", url: "", img:"/svg/refresh.svg", contents:"일반회원에서 기업회원으로 전환할 수 있는 공간입니다"},
   ],
+  phone:[
+    {value:"010", name: "010"},
+    {value:"011", name: "011"},
+    {value:"017", name: "017"},
+    {value:"016", name: "016"},
+  ],
+  email:[
+    {value:"", name: "직접입력"},
+    {value:"@naver.com", name: "@naver.com"},
+    {value:"@gmail.com", name: "@gmail.com"},
+    {value:"@hanmail.net", name: "@hanmail.net"},
+    {value:"@nate.com", name: "@nate.com"},
+    {value:"@kakao.com", name: "@kakao.com"},
+    {value:"@msn.com", name: "@msn.com"},
+  ],
+
   
   AlertSenders: [
     {name: "ALL", text: "전체"},
