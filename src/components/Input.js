@@ -6,19 +6,35 @@ import { useState } from "react";
 
 export const InputVer1_Mui = ({required, label, placeholder, defaultValue, inputType, hasButton, onChange, ...rest}) =>{
   const [inputHide, setInputHide] = useState(true)
+  const [selectDefault, setSelectDefault] = useState(!!rest.selects ? rest.selects[0].value == "" ? rest.selects[0].name : rest.selects[0].value : "");
+  const [selectValue, setSelectValue] = useState(null)
 
-  const [age, setAge] = useState('');
+  const onAfterSelect = (e) => {
+    e.target.name = e.target.name.replace("afterSelect","")
+    setSelectDefault(e.target.value)
+    if(e.target.value ==="직접입력"){
+      setSelectValue("")
+    }else{
+      setSelectValue(e.target.value)
+    }
+  }
 
-  const handleChange = (event) => {
-    console.log(event.target.tagName)
-    // const element = document.querySelectorAll(`[name="${event.target.name}"]`)
-    // let value = '';
-    // element.forEach((element) => {
-    //   console.log(element)
-    //   value += element.value;
-    // });
-    // onChange({field: event.target.name, value: value})
-  };
+  const setValue = ({target}) => {
+    const element = document.querySelectorAll(`[name="${target.name}"]`)
+    let value = '';
+    element.forEach((element) => {
+       // MUI 특성상 Select도 Input으로 치환하며, target을 가져왔을시 name, value밖에없음. 일반 input과 구분시켜주기 위한 조건
+      if(element.classList.contains('MuiSelect-nativeInput') || (element.classList.contains('MuiSelect-nativeInput') && !target.tagName)){
+        setSelectDefault(target.value)
+        value += target.value
+      }else{
+        value += element.value;
+      }
+    });
+    console.log(value)
+    onChange({field: target.name, value: value})
+  }
+
   return(
     <StyledInputVer1_Mui>
       <section>
@@ -30,9 +46,9 @@ export const InputVer1_Mui = ({required, label, placeholder, defaultValue, input
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               name={rest.name}
-              // value={age}
+              value={selectDefault}
               label="Age"
-              onChange={handleChange}
+              onChange={setValue}
             >
               {rest.selects.map(select => <MenuItem key={select.value} value={select.value}>{select.name}</MenuItem>)}
             </Select>
@@ -42,12 +58,12 @@ export const InputVer1_Mui = ({required, label, placeholder, defaultValue, input
         <div name="textField">
           <TextField
           fullWidth 
-          {...rest}
+          name={rest.name}
           type={(inputType === "eyes" && inputHide) ? "password" : "text"}
           required={required} 
           label={inputType === "beforeSelect" ? null : label}
           placeholder={placeholder || label}
-          onChange={handleChange}
+          onChange={setValue}
           InputLabelProps={{
             shrink: true,
           }}
@@ -63,19 +79,38 @@ export const InputVer1_Mui = ({required, label, placeholder, defaultValue, input
         />
         </div>
         {inputType === "afterSelect" && (
-        <div name="afterSelect">
-          <FormControl fullWidth>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={age}
-              label="Age"
-              onChange={handleChange}
-            >
-              {rest.selects.map(select => <MenuItem key={select.value} value={select.value}>{select.name}</MenuItem>)}
-            </Select>
-          </FormControl>
-        </div>
+        <>
+          <div name="textField">
+            <TextField
+            fullWidth 
+            {...rest}
+            type={(inputType === "eyes" && inputHide) ? "password" : "text"}
+            required={required} 
+            onChange={setValue}
+            value={selectValue}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            InputProps={{
+              readOnly: !!selectValue
+            }}
+          />
+          </div>
+          <div name="afterSelect">
+            <FormControl fullWidth>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                name={`afterSelect${rest.name}`}
+                value={selectDefault}
+                label="Age"
+                onChange={onAfterSelect}
+              >
+                {rest.selects.map(select => <MenuItem key={select.value} value={select.value}>{select.name}</MenuItem>)}
+              </Select>
+            </FormControl>
+          </div>
+        </>
         )}
         {!!hasButton && (
         <div name="button">

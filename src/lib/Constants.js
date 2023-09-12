@@ -52,7 +52,7 @@ export default {
     {value:"016", name: "016"},
   ],
   email:[
-    {value:"", name: "직접입력"},
+    {value:"직접입력", name: "직접입력"},
     {value:"@naver.com", name: "@naver.com"},
     {value:"@gmail.com", name: "@gmail.com"},
     {value:"@hanmail.net", name: "@hanmail.net"},

@@ -17,10 +17,10 @@ export default function DevPage(){
   return(
     <Dev>
       <main>
-        <InputVer1_Mui required={true} name="email" label="일반input" placeholder="standard" onChange={setData}/>
+        <InputVer1_Mui required={true} name="id" label="일반input" placeholder="standard" onChange={setData}/>
         <InputVer1_Mui required={true} name="eyes" label="눈 input" placeholder="ex) password" inputType={"eyes"}/>
         <InputVer1_Mui required={true} name="phone" label="beforeSelect" placeholder="beforeSelect" inputType={"beforeSelect"} selects={Constants["phone"]} onChange={setData}/>
-        <InputVer1_Mui required={true} name="afterSelect" label="afterSelect" placeholder="afterSelect" inputType={"afterSelect"} selects={Constants["email"]}/>
+        <InputVer1_Mui required={true} name="email" label="email" placeholder="email" inputType={"afterSelect"} selects={Constants["email"]} onChange={setData}/>
         <InputVer1_Mui required={true} name="hasButton" label="hasButton" placeholder="hasButton" inputType={"afterSelect"} selects={Constants["email"]} hasButton={"인증"}/>
         <button onClick={() => console.log(getData())}>test</button>
 
