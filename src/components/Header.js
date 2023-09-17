@@ -28,7 +28,7 @@ export const Header_main = ({isMainTop}) =>{
         </button>
 
         {Constants.topMenu.map((menu,i) =>(
-          <button key={`menu${i}`} name="menu" onClick={() => false}>
+          <button key={`menu${i}`} name="menu" onClick={() => push(menu.url)}>
             <span>{menu.name}</span>
           </button>
         ))}

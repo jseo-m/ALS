@@ -1,4 +1,5 @@
 import { StyledInputVer1_Mui } from "@/lib/styles/styled/input";
+import { regexpTest } from "@/lib/utils";
 import { Button, FormControl, IconButton, InputAdornment, InputLabel, MenuItem, Select, TextField } from "@mui/material"
 import Visibility from 'public/svg/icon_eye_open.svg';
 import { useState } from "react";
@@ -90,7 +91,7 @@ export const InputVer1_Mui = ({required, label, placeholder, defaultValue, input
             type="text"
             value={afterSelectValue}
             required={required} 
-            onChange={({target}) => {setAfterSelectValue(target.value),onChange({field:target.name, value:`${value}${target.value}`})}}
+            onChange={({target}) => {setAfterSelectValue(target.value),_onChange({field:target.name, value:`${value}${target.value}`})}}
             InputLabelProps={{
               shrink: true,
             }}
@@ -126,16 +127,50 @@ export const InputVer1_Mui = ({required, label, placeholder, defaultValue, input
   )
 }
 
+/**
+ * @desc 해당 field의 value에 대한 값 변경과 유효성 체크 함수
+ * @param data ? {field: 필드명, value: 필드의 값} 이 들어있음
+ * @param onChange ? field의 value가 바뀔때 ref에 저장할 onchange함수
+ */
 function _onChange(data, onChange){
   if(onChange) onChange(data)
-
+  console.log(data)
   _isValid(data)
 }
 
+/**
+ * @desc 유효성 체크하는 함수
+ * @param field 필드명
+ * @param value 필드의 값
+ */
 function _isValid({field, value}){
+  let valid = true
+  const rule = !!RULE[field] ? RULE[field] : RULE.other
+  if('regexp' in rule) valid = regexpTest(rule.regexp, value)
+  _setMessage({message: valid ? "" : rule?.message, field})
+}
 
-  const messageElement = document.getElementById(`message_field_${field}`)
-  messageElement.innerHTML = RULE[field]?.guide
+/**
+ * @desc case1: input.value가 변할때마다 valid에 따른 메시지를 출력하는데, value가 없으면 guide 메시지 출력 또는 비유효메시지 제거
+ * @desc case2: value 변화 없이, 현재 valid에 따른 메시지 출력
+ * @param message string
+ * @param isRed ? orange : gray
+ * @param field 메세지가 나타날 필드명
+ * @param messageMs 메시지 출력 딜레이 시간(ms)
+ */
+const TIMER={}
+function _setMessage({message, field, isRed = false, messageMs = 500}) {
+  if(TIMER[field]) clearTimeout(TIMER[field])
+  TIMER[field] = setTimeout(() => {
+    try{
+      const field_message = document.getElementById(`message_field_${field}`)
+      field_message.innerHTML = message
+      field_message.setAttribute("color", isRed ? "invalid" : "invalid")
+      delete TIMER[field]
+    }catch(e){
+      console.error("_setMessage: ", e)
+    }
+  }, messageMs)
 }
 
 export const RULE = {
@@ -182,13 +217,8 @@ export const RULE = {
     guide: "국가를 선택해 주세요",
     message: "국가를 선택해 주세요",
   },
-  email_for_reset: {
-    regexp: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
-    guide: "비밀번호를 초기화할 계정 이메일을 입력해주세요",
-    message: "이메일 형식이 아닙니다",
-  },
-  alias: {
-    optional: true,
-    guide: "등록할 디바이스의 닉네임을 입력하지 않을 경우, 자동 생성되며, 디테일 페이지에서 변경 가능합니다"
+  other: {
+    guide: "",
+    message: "칸은 필수 입력입니다.",
   },
 }

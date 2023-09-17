@@ -23,4 +23,10 @@ export const StyledInputVer1_Mui = styled.section`
       }
     }
   }
+  & > section:nth-of-type(2){
+    & > div[color="invalid"] {
+      font-size: 13px;
+      color: red;
+    }
+  }
 `

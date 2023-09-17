@@ -22,7 +22,7 @@ export default {
   topMenu: [
     {name: "견적문의", url: ""},
     {name: "입찰시스템", url: ""}, 
-    {name: "공장찾기", url: ""},
+    {name: "공장찾기", url: "/factories"},
     {name: "지원사업공고", url: ""},
     {name: "고객지원", url: ""}
   ],

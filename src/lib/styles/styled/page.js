@@ -1,11 +1,12 @@
 import styled from "@emotion/styled";
 import theme from "../theme";
 
-const Page = styled.div`
+const Page = styled.main`
   position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  background-color: #f9fafc;
 `
 
 export const StyleHome = styled(Page)`
@@ -51,6 +52,49 @@ export const Dev = styled(Page)`
     & > div{
       width: 100%;
       margin: 5px 0;
+    }
+  }
+`
+
+export const StylesPage_Userpage = styled(Page)`
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  & section{
+    padding: 30px 0;
+    width: 75vw;
+  }
+  & > section[name="header"] {
+    text-align: center;
+    & > p:nth-of-type(1) {
+      font-size: 25px;
+      font-weight: 700;
+      padding: 10px;
+    }
+    & > p:nth-of-type(2) {
+      color: #6b7280;
+      font-size: 15px;
+    }
+  }
+  & > section[name="search"] {
+    & > div:nth-of-type(1){
+      display: flex;
+      & > div:nth-of-type(1){
+        margin-right: 5px;
+      }
+      & button {
+        min-width: 40px;
+        padding: 5px;
+        margin: 0 5px;
+        width: 40px;
+        height: 40px;
+      }
+    }
+    & > div:nth-of-type(2){
+      display: flex;
+      & img {
+        margin-right: 5px;
+      }
     }
   }
 `
