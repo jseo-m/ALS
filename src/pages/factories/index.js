@@ -18,6 +18,16 @@ export default function Factories(){
           <img src="/svg/SearchFilled_dark.svg"></img>
           <span>전국 등록 공장 검색</span>
         </div>
+        <div>
+            <div>
+              <img src="/svg/LocationOnFilled.svg"/>
+              <span> + 지역</span>
+            </div>
+            <div>
+              <img src="/svg/ReceiptFilled.svg"/>
+              <span> + 업종</span>
+            </div>
+        </div>
       </section>
     </StylesPage_Userpage>
   )

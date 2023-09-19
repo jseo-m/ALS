@@ -1,6 +1,12 @@
 import styled from "@emotion/styled";
 import theme from "../theme";
 
+const Home = styled.main`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+`
 const Page = styled.main`
   position: relative;
   display: flex;
@@ -9,7 +15,7 @@ const Page = styled.main`
   background-color: #f9fafc;
 `
 
-export const StyleHome = styled(Page)`
+export const StyleHome = styled(Home)`
   color: var(--white);
   & > section{
     display: flex;
@@ -92,8 +98,29 @@ export const StylesPage_Userpage = styled(Page)`
     }
     & > div:nth-of-type(2){
       display: flex;
+      margin: 10px 0;
       & img {
         margin-right: 5px;
+      }
+    }
+    & > div:nth-of-type(3){
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      & div {
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: solid 0.3px rgba(0, 0, 0, 0.3);
+        background-color: #fff;
+        border-top: solid 2px #000;
+        color: rgba(0, 0, 0, 0.6);
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.04);
+        }
       }
     }
   }
