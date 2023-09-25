@@ -42,7 +42,7 @@ export const Header_main = ({isMainTop}) =>{
           <button key={`menu-login`} name="menu" onClick={() => push("/nonAuth/login")}>
             <span>로그인</span>
           </button>
-          <button key={`menu-join`} name="menu" onClick={() => push("/dev")}>
+          <button key={`menu-join`} name="menu" onClick={() => push("/nonAuth/signup")}>
             <span>회원가입</span>
           </button>
         </> ) : (

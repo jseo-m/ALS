@@ -61,6 +61,13 @@ export default {
     {value:"@msn.com", name: "@msn.com"},
   ],
 
+  signupTestItem:[
+    {field_id: "id", field_name: "아이디", field_status: "Y", field_attribute: "", hasButton: ""},
+    {field_id: "password", field_name: "비밀번호", field_status: "Y", field_attribute: "eyes", hasButton: ""},
+    {field_id: "passwordRe", field_name: "비밀번호 확인", field_status: "Y", field_attribute: "eyes", hasButton: ""},
+    {field_id: "name", field_name: "이름", field_status: "Y", field_attribute: "", hasButton: ""},
+    {field_id: "phone", field_name: "휴대폰번호", field_status: "Y", field_attribute: "beforeSelect", hasButton: "인증"},
+  ],
   
   AlertSenders: [
     {name: "ALL", text: "전체"},
