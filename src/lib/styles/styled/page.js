@@ -122,6 +122,9 @@ export const StylesPage_Userpage = styled(Page)`
           background-color: rgba(0, 0, 0, 0.04);
         }
       }
+      & > div[data-active=true]{
+        background-color: rgba(0, 0, 0, 0.04);
+      }
     }
   }
 `

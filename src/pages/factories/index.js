@@ -1,7 +1,9 @@
 import { StylesPage_Userpage } from "@/lib/styles";
 import { Button, TextField } from "@mui/material";
+import { useState } from "react";
 
 export default function Factories(){
+  const [active, setActive] = useState("location")
   return(
     <StylesPage_Userpage>
       <section name="header">
@@ -19,14 +21,17 @@ export default function Factories(){
           <span>전국 등록 공장 검색</span>
         </div>
         <div>
-            <div>
+            <div id="location" onClick={({target}) => setActive(target.id)} data-active={"location" === active}>
               <img src="/svg/LocationOnFilled.svg"/>
               <span> + 지역</span>
             </div>
-            <div>
+            <div id="sectors" onClick={({target}) => setActive(target.id)} data-active={"sectors" === active}>
               <img src="/svg/ReceiptFilled.svg"/>
               <span> + 업종</span>
             </div>
+        </div>
+        <div>
+          
         </div>
       </section>
     </StylesPage_Userpage>
