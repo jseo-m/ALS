@@ -182,48 +182,62 @@ export const Styles_Login = styled(Page)`
   }
 
 `
-export const Signup = styled(Page)`
+export const Styles_Signup = styled(Page)`
+  padding: 30px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  section{
+    width: 35vw;
+    display: grid;
+  }
 
-  & > main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 640px;
-    padding: 100px 0 90px;
-
-    & > section{
-      width: 100%;
+  & > section:nth-of-type(1){
+    padding: 30px 0;
+    & > p {
+      padding: 10px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: 700;
     }
-
-    & > section:nth-of-type(1){
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-    }
-
-    & > section:nth-of-type(3){
-      & > div{
-        margin-bottom: 50px;
-        width: 100%;
-        height: 60px;
-        border-radius: 30px;
+    & > span{
+        font-size: 14px;
         text-align: center;
-        background-color: ${theme.Colors.black0};
-        color: white;
-        line-height: 60px;
-        & > strong {
-          font-weight: 600;
-        }
+        color: #6b7280;
+    }
+    & > div{
+      width: 100%;
+      display: flex;
+      background-color: #fff;
+      margin-top: 50px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.23);
+      cursor: pointer;
+      & > div {
+        padding: 10px;
+        flex-grow:1;
+        font-weight: 500;
+        text-align: center
+      }
+      & div[data-selected=true]{
+        border-bottom: 2px solid #000;
+      }
+      /* & div[data-selected=false]{
+        border-bottom: 1px solid rgba(0, 0, 0, 0.23);
+      } */
+      
+    }
+  }
+
+    & > section:nth-of-type(2){
+      & > section{
+        margin: 15px 0;
       }
     }
 
     & > div{
       width: 210px;
     }
-  }
 `
 export const StylesPage_Mypage = styled(Page)`
   padding: 30px;

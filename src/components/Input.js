@@ -175,8 +175,9 @@ function _setMessage({message, field, isRed = false, messageMs = 500}) {
 
 export const RULE = {
   id: {
+    regexp: /^[a-zA-Z0-9]{4,16}$/,
     guide: "아이디를 입력해주세요",
-    message: "아이디를 입력해주세요",
+    message: "아이디는 띄어쓰기 없이 영/숫자 4-16자 이내로 입력해주세요",
   },
   email: {
     regexp: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
