@@ -137,6 +137,10 @@ export const Styles_Login = styled(Page)`
   align-items: center;
   overflow-y: auto;
 
+  hr{
+    margin:8px 0;
+  }
+
   section{
     width: 380px;
     display: grid;

@@ -1,3 +1,4 @@
+export * as StyledButton from './styled/button'
 // super
 export * from './styled/layout'
 export * from './styled/header'

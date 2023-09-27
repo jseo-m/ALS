@@ -1,7 +1,8 @@
+import SocialButton from "@/components/SocialButton";
 import api from "@/lib/api";
 import { useAuth } from "@/lib/store";
 import { Styles_Login } from "@/lib/styles";
-import { Button, TextField } from "@mui/material";
+import { Button, Divider, TextField } from "@mui/material";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import { useRef } from "react";
@@ -56,7 +57,14 @@ export default function Login(){
           <span>아이디/비밀번호 찾기</span>
           <span>회원가입</span>
         </div>
+        <Divider style={{borderColor: 'rgba(0, 0, 0, 0.87)'}}/>
       </section>
+      <section>
+        <SocialButton.Naver />
+        <SocialButton.Kakao />
+        <SocialButton.Google />
+      </section>
+      
     </Styles_Login>
   )
 }
