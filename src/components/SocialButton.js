@@ -50,6 +50,13 @@ function _Google({edit, snsAccount}){
 const Google = (props) => <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_LOGIN_KEY}><_Google {...props}/></GoogleOAuthProvider>
 
 function Kakao({edit, snsAccount}){
+
+  const redirect_uri = process.env.NEXT_PUBLIC_KAKAO_CALLBACK
+  const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_KAKAO_LOGIN_KEY}&redirect_uri=${redirect_uri}&response_type=code`
+
+  const onLogin = () => {
+    window.location.href = kakaoURL
+  }
   
   return (
     <>
