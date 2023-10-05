@@ -69,6 +69,11 @@ export default {
     {field_id: "phone", field_name: "휴대폰번호", field_status: "Y", field_attribute: "beforeSelect", hasButton: "인증"},
   ],
   
+  signupTerms:[
+    { id: 1, label: '엠슈머 서비스 이용약관 동의', checked: false, required: true},
+    { id: 2, label: '개인정보 수집 및 활용 동의', checked: false, required: true },
+    { id: 3, label: '혜택 알림, 이메일, 문자 서비스 정보', checked: false, required: false },
+  ],
   AlertSenders: [
     {name: "ALL", text: "전체"},
     {name: "DEVICE", text: "단말알림"},

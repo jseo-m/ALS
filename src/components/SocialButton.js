@@ -27,7 +27,7 @@ const Dom = {
   },
 }
 
-function _Google({edit, snsAccount}){
+function _Google({edit, snsAccount, small}){
   
   const onLogin = useGoogleLogin({
     onSuccess : (tokenResponse) => {
@@ -38,9 +38,9 @@ function _Google({edit, snsAccount}){
 
   return (
     <>
-      <StyledButton.SNS onClick={() => onLogin()}>
+      <StyledButton.SNS onClick={() => onLogin()} small={small}>
         <div><img src="/svg/btn_google.svg"/></div>
-        <div><span>Google 로그인</span></div>
+        {small || <div><span>Google 로그인</span></div>}
       </StyledButton.SNS>
 
       {/* <Modal_dormant controller={modal_dormant} /> */}
@@ -49,7 +49,7 @@ function _Google({edit, snsAccount}){
 }
 const Google = (props) => <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_LOGIN_KEY}><_Google {...props}/></GoogleOAuthProvider>
 
-function Kakao({edit, snsAccount}){
+function Kakao({edit, snsAccount, small}){
 
   const redirect_uri = process.env.NEXT_PUBLIC_KAKAO_CALLBACK
   const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_KAKAO_LOGIN_KEY}&redirect_uri=${redirect_uri}&response_type=code`
@@ -60,9 +60,9 @@ function Kakao({edit, snsAccount}){
   
   return (
     <>
-      <StyledButton.SNS onClick={() => onLogin()} style={{backgroundColor:'#FEE500'}}>
+      <StyledButton.SNS onClick={() => onLogin()} style={{backgroundColor:'#FEE500'}} small={small}>
         <div><img src="/svg/btn_kakao.svg"/></div>
-        <div><span>Kakao 로그인</span></div>
+        {small || <div><span>Kakao 로그인</span></div>}
       </StyledButton.SNS>
 
       {/* <Modal_dormant controller={modal_dormant} /> */}
@@ -70,7 +70,7 @@ function Kakao({edit, snsAccount}){
   )
 }
 
-function Naver({edit, snsAccount}){
+function Naver({edit, snsAccount, small}){
   
   const naverRef = useRef()
 
@@ -104,9 +104,9 @@ function Naver({edit, snsAccount}){
   return (
     <>
       <div ref={naverRef} id="naverIdLogin" style={{display:'none'}}/>
-      <StyledButton.SNS onClick={() => onLogin()} style={{backgroundColor:'#03C75A'}}>
+      <StyledButton.SNS onClick={() => onLogin()} style={{backgroundColor:'#03C75A'}} small={small}>
         <div><img src="/svg/btn_naver.svg"/></div>
-        <div><span>Naver 로그인</span></div>
+        {small || <div><span>Naver 로그인</span></div>}
       </StyledButton.SNS>
 
       {/* <Modal_dormant controller={modal_dormant} /> */}

@@ -1,9 +1,10 @@
 import { InputVer1_Mui } from "@/components/Input";
+import SocialButton from "@/components/SocialButton";
 import api from "@/lib/api";
 import Constants from "@/lib/Constants";
 import { useAuth } from "@/lib/store";
 import { Styles_Signup } from "@/lib/styles";
-import { Button, TextField } from "@mui/material";
+import { Button, Checkbox, Divider, FormControlLabel, FormGroup, TextField } from "@mui/material";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import { useRef, useState } from "react";
@@ -13,6 +14,8 @@ export default function Signup(){
   const {replace} = useRouter()
   const {setAuth} = useAuth()
   const [signupType, setSignupType] = useState("standard")
+  const [selectAll, setSelectAll] = useState(false)
+  const [checkboxes, setCheckboxes] = useState(Constants.signupTerms)
 
   const {mutate: login} = api.account.useLogin({
     onSuccess: (res) =>{
@@ -27,11 +30,11 @@ export default function Signup(){
     }
   })
 
-  function onInputChange({target}){
+  /* function onInputChange({target}){
     setMessage("")
     const field = target.id
     loginInputRef.current[field] = target.value
-  }
+  } */
 
   function onSubmit(){
     console.log(loginInputRef.current)
@@ -43,6 +46,11 @@ export default function Signup(){
     const field = document.querySelector('span[name="check_message"]')
     field.textContent = text
   }
+
+  function handleSelectAll(){
+    setSelectAll(!selectAll)
+    setCheckboxes(checkboxes.map((chk) => ({...chk, checked: !selectAll})))
+  };
 
   return(
     <Styles_Signup>
@@ -61,6 +69,7 @@ export default function Signup(){
       <section>
         {Constants.signupTestItem.map((item, key) => (
           <InputVer1_Mui 
+            key={key}
             name={item.field_id} 
             label={item.field_name} 
             inputType={item.field_attribute} 
@@ -69,6 +78,30 @@ export default function Signup(){
             selects={item.field_attribute.includes("Select") ? Constants[item.field_id] : null}
             />
         ))}
+      </section>
+      <section name="terms">
+        <span>가입약관 동의</span>
+        <FormGroup>
+          <div>
+            <FormControlLabel control={<Checkbox checked={selectAll} onChange={handleSelectAll} name="selectAll" required/>} label="엠슈머 이용약관에 모두 동의합니다."/>
+          </div>
+          <Divider/>
+          {console.log(checkboxes)}
+          {checkboxes.map((chk,key) => (
+            <div key={key}>
+              <FormControlLabel control={<Checkbox checked={chk.checked} onChange={handleSelectAll} name={`terms${key}`}/>} label={<span>required <span style={{ color: 'red' }}>*</span></span>}/>
+            </div>
+          ))}
+        </FormGroup>
+      </section>
+      <section name="joinBtn"></section>
+      <section name="sns">
+          <span>자주 사용하는 SNS 서비스로 간편하게 가입해 보세요</span>
+          <div>
+            <SocialButton.Naver small={true}/>
+            <SocialButton.Kakao small={true}/>
+            <SocialButton.Google small={true}/>
+          </div>
       </section>
     </Styles_Signup>
   )

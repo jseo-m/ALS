@@ -14,9 +14,9 @@ export const SNS = styled.div`
   width: 100%;
   height: 45px;
   display: grid;
-  grid-template-columns: 1fr 6fr;
+  grid-template-columns:${({small}) => small ? '1fr' : '1fr 6fr'};
   border: solid 0.5px rgba(0, 0, 0, 0.30);
-  margin: 2px 0;
+  margin: 2px 1px;
   cursor: pointer;
   & > div {
     display: flex;

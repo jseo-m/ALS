@@ -242,6 +242,26 @@ export const Styles_Signup = styled(Page)`
     & > div{
       width: 210px;
     }
+    & > section[name="terms"]{
+      & > div{
+        padding: 10px;
+        & span {
+          font-size: 12px;
+          font-weight: 600;
+        }
+      }
+    }
+
+    & > section[name="sns"]{
+      justify-content: center;
+      display: grid;
+      justify-items: center;
+      & > div{
+        margin: 10px;
+        display: flex;
+        width: 50%;
+      }
+    }
 `
 export const StylesPage_Mypage = styled(Page)`
   padding: 30px;
