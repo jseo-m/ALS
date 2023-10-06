@@ -66,67 +66,23 @@ export const StylesPage_Userpage = styled(Page)`
   padding: 30px;
   display: flex;
   align-items: center;
-  & section{
+  & > section{
     padding: 30px 0;
     width: 75vw;
   }
   & > section[name="header"] {
     text-align: center;
     & > p:nth-of-type(1) {
-      font-size: 25px;
+      font-size: 22px;
       font-weight: 700;
       padding: 10px;
     }
     & > p:nth-of-type(2) {
       color: #6b7280;
-      font-size: 15px;
+      font-size: 12px;
     }
   }
-  & > section[name="search"] {
-    & > div:nth-of-type(1){
-      display: flex;
-      & > div:nth-of-type(1){
-        margin-right: 5px;
-      }
-      & button {
-        min-width: 40px;
-        padding: 5px;
-        margin: 0 5px;
-        width: 40px;
-        height: 40px;
-      }
-    }
-    & > div:nth-of-type(2){
-      display: flex;
-      margin: 10px 0;
-      & img {
-        margin-right: 5px;
-      }
-    }
-    & > div:nth-of-type(3){
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      & div {
-        height: 35px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: solid 0.3px rgba(0, 0, 0, 0.3);
-        background-color: #fff;
-        border-top: solid 2px #000;
-        color: rgba(0, 0, 0, 0.6);
-        &:hover {
-          background-color: rgba(0, 0, 0, 0.04);
-        }
-      }
-      & > div[data-active=true]{
-        background-color: rgba(0, 0, 0, 0.04);
-      }
-    }
-  }
+  
 `
 
 export const Styles_Login = styled(Page)`
@@ -234,7 +190,7 @@ export const Styles_Signup = styled(Page)`
   }
 
     & > section:nth-of-type(2){
-      & > section{
+      & > div{
         margin: 15px 0;
       }
     }
@@ -245,6 +201,9 @@ export const Styles_Signup = styled(Page)`
     & > section[name="terms"]{
       & > div{
         padding: 10px;
+        & > div{
+          margin: 3px 0;
+        }
         & span {
           font-size: 12px;
           font-weight: 600;
@@ -252,6 +211,13 @@ export const Styles_Signup = styled(Page)`
       }
     }
 
+    & > section[name="joinBtn"]{
+      display: flex;
+      justify-content: center;
+      & > button{
+        margin: 20px 5px;
+      }
+    }
     & > section[name="sns"]{
       justify-content: center;
       display: grid;
@@ -281,4 +247,3 @@ export const StylesPage_Mypage = styled(Page)`
       margin: 40px 20px;
   }
 `
-

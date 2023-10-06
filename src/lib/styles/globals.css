@@ -149,7 +149,13 @@ img.gsc_img_32_gray_main.gsc_hover:hover {
 .MuiTableCell-root{
   font-family: 'Noto Sans KR', sans-serif;
 }
-
+.cancelBtn{
+  background-color: rgba(0, 0, 0, 0.2) !important;
+  color: rgba(0, 0, 0, 0.7);
+}
+.MuiButton-contained{
+  background-color: black;
+}
 
 
 /* gcc prevent children from being cliked */

@@ -2,6 +2,7 @@ import { Layout_Standard, Layout_main, Layout_Mypage } from '@/components/Layout
 import Constants from '@/lib/Constants'
 import { useRefresh } from '@/lib/hooks'
 import '@/lib/styles/globals.css'
+import { createTheme, ThemeProvider } from '@mui/material'
 import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
@@ -9,6 +10,13 @@ export default function App({ Component, pageProps }) {
   const {pathname} = useRouter()
 
   // useRefresh()
+
+  //MUI 폰트 수정 테마
+  const theme = createTheme({
+    typography: {
+      fontFamily: 'Noto Sans KR, sans-serif',
+    },
+  });
 
   const [queryClient] = useState(() => new QueryClient(Constants.QueryClient.config))
 
@@ -19,11 +27,13 @@ export default function App({ Component, pageProps }) {
   ))
   return (
     <>
-    <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>
-        {getLayout(<Component {...pageProps} />)}
-      </Hydrate>
-    </QueryClientProvider>
+    <ThemeProvider theme={theme}>
+      <QueryClientProvider client={queryClient}>
+        <Hydrate state={pageProps.dehydratedState}>
+          {getLayout(<Component {...pageProps} />)}
+        </Hydrate>
+      </QueryClientProvider>
+    </ThemeProvider>
     </>
     )
 }

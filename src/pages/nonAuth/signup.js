@@ -1,4 +1,4 @@
-import { InputVer1_Mui } from "@/components/Input";
+import { AuthCode, InputVer1_Mui } from "@/components/Input";
 import SocialButton from "@/components/SocialButton";
 import api from "@/lib/api";
 import Constants from "@/lib/Constants";
@@ -26,7 +26,7 @@ export default function Signup(){
     },
     onError: (err) => {
       console.log(err)
-      setMessage("아이디 또는 비밀번호를 확인해 주세요.")
+      // setMessage("아이디 또는 비밀번호를 확인해 주세요.")
     }
   })
 
@@ -42,15 +42,15 @@ export default function Signup(){
     // setMessage("아이디 비밀번호 확인")
   }
 
-  function setMessage(text){
-    const field = document.querySelector('span[name="check_message"]')
-    field.textContent = text
-  }
-
-  function handleSelectAll(){
+  function termsAllCheck(){
     setSelectAll(!selectAll)
     setCheckboxes(checkboxes.map((chk) => ({...chk, checked: !selectAll})))
-  };
+  }
+
+  function termsCheck(id){
+    setCheckboxes(checkboxes.map((chk) => chk.id === id ? { ...chk, checked: !chk.checked } : chk))
+    setSelectAll(checkboxes.every((chk) => chk.checked))
+  }
 
   return(
     <Styles_Signup>
@@ -78,23 +78,31 @@ export default function Signup(){
             selects={item.field_attribute.includes("Select") ? Constants[item.field_id] : null}
             />
         ))}
+        <AuthCode />
       </section>
       <section name="terms">
         <span>가입약관 동의</span>
         <FormGroup>
           <div>
-            <FormControlLabel control={<Checkbox checked={selectAll} onChange={handleSelectAll} name="selectAll" required/>} label="엠슈머 이용약관에 모두 동의합니다."/>
+            <FormControlLabel control={<Checkbox checked={selectAll} onChange={termsAllCheck} name="selectAll"/>} label={<span>엠슈머 이용약관에 모두 동의합니다.</span>}/>
           </div>
           <Divider/>
-          {console.log(checkboxes)}
           {checkboxes.map((chk,key) => (
             <div key={key}>
-              <FormControlLabel control={<Checkbox checked={chk.checked} onChange={handleSelectAll} name={`terms${key}`}/>} label={<span>required <span style={{ color: 'red' }}>*</span></span>}/>
+              <FormControlLabel control={<Checkbox checked={chk.checked} onChange={() => termsCheck(chk.id)} name={`terms${key}`}/>} 
+                label={
+                <span>{chk.label} 
+                  <span style={{ color: chk.required ? 'red' : '#0288d1' }}>{chk.required ? "(필수)": "(선택)"}</span>
+                </span>}
+              />
             </div>
           ))}
         </FormGroup>
       </section>
-      <section name="joinBtn"></section>
+      <section name="joinBtn">
+        <Button className="cancelBtn" variant="contained">취소하기</Button>
+        <Button variant="contained">가입하기</Button>
+      </section>
       <section name="sns">
           <span>자주 사용하는 SNS 서비스로 간편하게 가입해 보세요</span>
           <div>

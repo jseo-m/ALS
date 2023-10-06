@@ -1,4 +1,4 @@
-import { StyledInputVer1_Mui } from "@/lib/styles/styled/input";
+import { StyledInputVer1_Mui, StyledInput_Authcode } from "@/lib/styles/styled/input";
 import { regexpTest } from "@/lib/utils";
 import { Button, FormControl, IconButton, InputAdornment, InputLabel, MenuItem, Select, TextField } from "@mui/material"
 import Visibility from 'public/svg/icon_eye_open.svg';
@@ -44,13 +44,13 @@ export const InputVer1_Mui = ({required, label, placeholder, defaultValue, input
         {inputType === "beforeSelect" && (
         <div name="beforeSelect">
           <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Age</InputLabel>
+            <InputLabel id="demo-simple-select-label">{label}</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               name={rest.name}
               value={selectDefault}
-              label="Age"
+              label={label}
               onChange={onChangeBeforeInput}
             >
               {rest.selects.map(select => <MenuItem key={select.value} value={select.value}>{select.name}</MenuItem>)}
@@ -105,7 +105,7 @@ export const InputVer1_Mui = ({required, label, placeholder, defaultValue, input
                 id="demo-simple-select"
                 name={rest.name}
                 value={selectDefault}
-                label="Age"
+                label={label}
                 onChange={onChangeAfterInput}
               >
                 {rest.selects.map(select => <MenuItem key={select.value} value={select.value}>{select.name}</MenuItem>)}
@@ -124,6 +124,17 @@ export const InputVer1_Mui = ({required, label, placeholder, defaultValue, input
         <div id={`message_field_${rest.name}`}></div>
       </section>
     </StyledInputVer1_Mui>
+  )
+}
+
+export const AuthCode = () => {
+  return(
+    <StyledInput_Authcode>
+      <span>인증제한시간</span>
+      <span>02:23</span>
+      <InputVer1_Mui name="authCode" label="인증번호" hasButton="확인" required={true} />
+      <span>인증코드를 받지 못하셨나요? <Button variant="text">인증번호 재요청</Button></span>
+    </StyledInput_Authcode>
   )
 }
 
