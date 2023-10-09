@@ -18,30 +18,7 @@ const Page = styled.main`
 export const StyleHome = styled(Home)`
   color: var(--white);
   & > section{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 60px);
-    & > div{
-      width: 60%;
-      & > div:nth-of-type(1){
-        padding: 15px 0;
-        & > p:nth-of-type(1){
-          font-size: 48px;
-          font-weight: 800;
-        }
-        & > p:nth-of-type(2){
-          font-size: 24px;
-        }
-      }
-      & > div:nth-of-type(2){
-        & > button {
-          margin: 5px;
-          color: var(--white);
-          border: 1px solid var(--white);
-        }
-      }
-    }
+    
   }
 `
 export const Dev = styled(Page)`

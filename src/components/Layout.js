@@ -5,7 +5,7 @@ import { Nav_mypage } from "./Nav";
 
 export function Layout_main({children}) {
 	const [isMainTop, setIsMainTop] = useState(true);
-
+/* 
 	useEffect(() => {
     const handleScroll = () => {
       // 스크롤 위치에 따라 배경색을 변경합니다.
@@ -21,17 +21,12 @@ export function Layout_main({children}) {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
+ */
     return(
-			<div className="video-background">
-					<video autoPlay loop muted className="video">
-						<source src="https://cdn.steelboso.com/common/file/landing/landing.mp4" type='video/mp4'/>
-					</video>
 				<StyledLayout_Main>
 						<Header_main isMainTop={isMainTop}/>
 						<main>{children}</main>
 				</StyledLayout_Main>
-      </div>
     )
 }
 export function Layout_Standard({children}) {

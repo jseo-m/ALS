@@ -84,7 +84,7 @@ export default function Signup(){
         <span>가입약관 동의</span>
         <FormGroup>
           <div>
-            <FormControlLabel control={<Checkbox checked={selectAll} onChange={termsAllCheck} name="selectAll"/>} label={<span>엠슈머 이용약관에 모두 동의합니다.</span>}/>
+            <FormControlLabel control={<Checkbox checked={selectAll} onChange={termsAllCheck} name="selectAll"/>} label={<span>이용약관에 모두 동의합니다.</span>}/>
           </div>
           <Divider/>
           {checkboxes.map((chk,key) => (
@@ -103,6 +103,7 @@ export default function Signup(){
         <Button className="cancelBtn" variant="contained">취소하기</Button>
         <Button variant="contained">가입하기</Button>
       </section>
+      {/* 
       <section name="sns">
           <span>자주 사용하는 SNS 서비스로 간편하게 가입해 보세요</span>
           <div>
@@ -111,6 +112,7 @@ export default function Signup(){
             <SocialButton.Google small={true}/>
           </div>
       </section>
+       */}
     </Styles_Signup>
   )
 }

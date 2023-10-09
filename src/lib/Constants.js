@@ -20,11 +20,10 @@ export default {
     list: ['google', 'facebook', 'apple']
   },
   topMenu: [
-    {name: "견적문의", url: ""},
-    {name: "입찰시스템", url: ""}, 
-    {name: "공장찾기", url: "/factories"},
-    {name: "지원사업공고", url: ""},
-    {name: "고객지원", url: ""}
+    {name: "메뉴1", url: ""},
+    {name: "메뉴2", url: ""}, 
+    {name: "메뉴3", url: ""},
+    {name: "메뉴4", url: ""},
   ],
   myMenu: [
     {name: "MY 활동", url: "", type: "group"},
@@ -70,7 +69,7 @@ export default {
   ],
   
   signupTerms:[
-    { id: 1, label: '엠슈머 서비스 이용약관 동의', checked: false, required: true},
+    { id: 1, label: '서비스 이용약관 동의', checked: false, required: true},
     { id: 2, label: '개인정보 수집 및 활용 동의', checked: false, required: true },
     { id: 3, label: '혜택 알림, 이메일, 문자 서비스 정보', checked: false, required: false },
   ],

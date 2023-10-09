@@ -17,7 +17,8 @@ export const StyledHeader_main = styled(Header)`
       align-items: center;
       height: 60px;
       justify-content: space-between;
-      background-color: ${({mainTop}) => mainTop ? "transparent" : "white"};
+      background-color: white;
+      /* background-color: ${({mainTop}) => mainTop ? "transparent" : "white"}; */
     & > div:nth-of-type(1){
       display: flex;
       align-items: center;
@@ -27,7 +28,8 @@ export const StyledHeader_main = styled(Header)`
       /* flex: 1; */
       /* display: flex; */
       /* justify-content: flex-start; */
-      color: ${({mainTop}) => mainTop ? "white" : "black"};
+      /* color: ${({mainTop}) => mainTop ? "white" : "black"}; */
+      color: black;
       background-color: transparent;
       padding: 15px 15px;
       & > strong {
@@ -39,7 +41,8 @@ export const StyledHeader_main = styled(Header)`
       /* flex: 1; */
       /* display: flex; */
       /* justify-content: flex-start; */
-      color: ${({mainTop}) => mainTop ? "white" : "black"};
+      /* color: ${({mainTop}) => mainTop ? "white" : "black"}; */
+      color: black;
       background-color: transparent;
       padding: 15px 25px;
       & span {
@@ -67,7 +70,8 @@ export const StyledHeader_main = styled(Header)`
       /* flex: 1; */
       /* display: flex; */
       /* justify-content: flex-start; */
-      color: ${({mainTop}) => mainTop ? "white" : "black"};
+      /* color: ${({mainTop}) => mainTop ? "white" : "black"}; */
+      color: black;
       background-color: transparent;
       padding: 15px 25px;
       & span {

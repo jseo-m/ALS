@@ -2,7 +2,7 @@ import Axios from "axios";
 import Constants from "@/lib/Constants"
 // import * as vod from './vod'
 import * as account from './account'
-import * as user from './user'
+// import * as user from './user'
 // import * as main from './main'
 // import * as device from './device'
 // import * as setting from './setting'
@@ -80,7 +80,7 @@ export const axios = {
 
 export default {
   account,
-  user,
+  // user,
   // main,
   // device,
   // setting,

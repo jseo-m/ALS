@@ -46,7 +46,7 @@ export default function Login(){
     <Styles_Login>
       <section>
         <p>로그인</p>
-        <span>로그인을 하시면 다양한 엠슈머의 서비스를 이용하실 수 있습니다</span>
+        <span>로그인을 하시면 다양한 서비스를 이용하실 수 있습니다</span>
       </section>
       <section>
         <TextField id="id" placeholder="아이디를 입력해 주세요" variant="outlined" onChange={onInputChange}/>
@@ -59,12 +59,13 @@ export default function Login(){
         </div>
         <Divider style={{borderColor: 'rgba(0, 0, 0, 0.87)'}}/>
       </section>
+      {/* 
       <section>
         <SocialButton.Naver />
         <SocialButton.Kakao />
         <SocialButton.Google />
       </section>
-      
+       */}
     </Styles_Login>
   )
 }

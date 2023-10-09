@@ -24,7 +24,7 @@ export const Header_main = ({isMainTop}) =>{
     <StyledHeader_main mainTop={mainTop}>
       <div>
         <button name="logo" onClick={() => push("/")}>
-          <strong>MSUMER</strong>
+          <strong>LOGO</strong>
         </button>
 
         {Constants.topMenu.map((menu,i) =>(
