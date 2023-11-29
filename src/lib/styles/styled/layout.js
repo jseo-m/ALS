@@ -12,6 +12,7 @@ const Layout = styled.div`
   `
 
 export const StyledLayout_Main = styled(Layout)`
+overflow: hidden;
  
 `
 export const StyledLayout_Standard = styled(Layout)`

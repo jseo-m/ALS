@@ -2,14 +2,12 @@ import Constants from "@/lib/Constants"
 import { useLogout } from "@/lib/hooks"
 import { useAuth } from "@/lib/store"
 import { StyledHeader_main } from "@/lib/styles"
-import { Avatar } from "@mui/material"
+import { Avatar, Button } from "@mui/material"
 import Cookies from "js-cookie"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
-import PopAlert from "./PopAlert"
-import PopProfile from "./PopProfile"
 
-export const Header_main = ({isMainTop}) =>{
+export const Header_main = ({isMainTop, setViewMode}) =>{
   const {push, replace} = useRouter()
   const mainTop = !!isMainTop
 
@@ -37,6 +35,9 @@ export const Header_main = ({isMainTop}) =>{
         </button>
       </div>
       <div>
+        <Button variant="contained" onClick={() => setViewMode(prev => !prev)}>다크/화이트 모드</Button>
+      </div>
+      {/* <div>
         {aToken === "" ? (
         <>
           <button key={`menu-login`} name="menu" onClick={() => push("/nonAuth/login")}>
@@ -60,7 +61,7 @@ export const Header_main = ({isMainTop}) =>{
           <PopAlert anchorEl={anchorAlert} setAnchorEl={setAnchorAlert}/>
         </>
         )}
-      </div>
+      </div> */}
       
     </StyledHeader_main>
   )

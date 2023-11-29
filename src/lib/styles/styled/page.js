@@ -5,6 +5,7 @@ const Home = styled.main`
   position: relative;
   display: flex;
   flex-direction: column;
+  height: 100%;
   min-height: 100%;
 `
 const Page = styled.main`
@@ -16,9 +17,35 @@ const Page = styled.main`
 `
 
 export const StyleHome = styled(Home)`
-  color: var(--white);
+  color: black;
+  background-color:${({viewMode}) => viewMode ? "white" : "black"};
+  transition: background-color 0.5s ease;
   & > section{
-    
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr)); 
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    /* grid-template-columns: repeat(4, 1fr); 
+    grid-template-rows: repeat(3,1fr); */
+    height: 100%;
+    margin: 3px;
+    overflow: hidden;
+    max-height: 100vh;
+    & > figure {
+      box-shadow: 0 0 0 0.4px ${({viewMode}) => viewMode ? "black" : "white"};
+      transition: box-shadow 0.5s ease;
+      width: 100%;
+      height: 100%;
+      
+      & > div:nth-of-type(1){
+        position: relative;
+        font-size:30px;
+        font-weight:700;
+        text-align:center;
+      }
+      .echarts-for-react{
+        position: relative;
+      }
+    }
   }
 `
 export const Dev = styled(Page)`
