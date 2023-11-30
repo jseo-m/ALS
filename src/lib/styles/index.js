@@ -6,6 +6,6 @@ export * from './styled/nav'
 export * from './styled/footer'
 export * from "./styled/page"
 // sub
-export * from "./styled/menu"
-export * from './styled/label'
+// export * from "./styled/menu"
+// export * from './styled/label'
 export * from './styled/dialog'

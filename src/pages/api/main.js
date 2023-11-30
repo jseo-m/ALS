@@ -2,58 +2,45 @@
 import Mock from "@/lib/Mock";
 import { connection } from "@/lib/sqlConnect";
 
-export function getLineElementSQL(req, res){
-  const param = req.body
-  var queryString = `SELECT * FROM plating_line_element  where plating_main_line_index = ${param.lineIdx}`
-  console.log(queryString)
 
-  connection.query(queryString, (err,rows,fields) => {
-    if(!!err){
-      res.status(400).json(err)
-    }else{
+function executeQuery(queryString) {
+  return new Promise((resolve, reject) => {
+    connection.query(queryString, (err, rows, fields) => {
+      if (err) {
+        reject(err); // 쿼리 실행 중 오류가 발생한 경우 reject를 호출하여 에러를 전달합니다.
+      } else {
+        resolve(rows); // 쿼리가 성공하면 resolve를 호출하여 결과를 전달합니다.
+      }
+    });
+  });
+}
+
+export async function getElementDataSQL(req, res){
+  const param = req.body
+  var queryString = `SELECT A.* 
+                      ,ROUND (A.plating_min_value1 - (((A.plating_max_value1 - A.plating_min_value1)/4))*3) AS chart_min_value1
+                      ,ROUND (A.plating_max_value1 + (((A.plating_max_value1 - A.plating_min_value1)/4))*3) AS chart_max_value1
+                    FROM plating_line_element A where plating_main_line_index = ${param.lineIdx}`
+  // console.log(queryString)
+  try {
+    const rows = await executeQuery(queryString)
+
+    if(rows){
       res.status(200).json(rows)
     }
-  })
+  } catch (error) {
+    res.status(400).json({ error: error.message })
+  }
 
 }
 
-export function getElementDataSQL(req, res){
-  const param = req.body
-  var queryString = `SELECT * FROM plating_line_element  where plating_main_line_index = ${param.lineIdx}`
-  // console.log(queryString)
-
-  connection.query(queryString, (err,rows,fields) => {
-    if(!!err){
-      return res.status(400).json(err)
-    }else{
-      return res.status(200).json(rows)
-    }
-  })
-
-}
-
-export function myEstList(req, res){
-  const mock = Mock.estList
-  res.status(200).json({data: mock})
-}
-export function myEstView(req, res){
-  const mock = Mock.estList
-  const result = mock.find(v => v.id == req.body.id)
-  res.status(200).json({data: result})
-}
 
 export default function handler(req, res) {
   const {action} = req.body
 
   switch(action){
-    case "getLineElement" : 
-      getLineElementSQL(req,res)
-      break;
     case "getElementData" : 
       getElementDataSQL(req,res)
-      break;
-    case "myEstView" : 
-      myEstView(req,res)
       break;
     default : res.status(400).json({ error: 'Invalid action' });
   }

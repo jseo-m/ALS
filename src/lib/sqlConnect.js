@@ -8,3 +8,11 @@ export const connection = mysql.createConnection({
   database:'platservice_new'
 })
 
+// export const connection = mysql.createConnection({
+//   host: process.env.NEXT_PUBLIC_MYSQL_HOST,
+//   port: '33060',
+//   user: process.env.NEXT_PUBLIC_MYSQL_USER,
+//   password: process.env.NEXT_PUBLIC_MYSQL_PASSWORD,
+//   database:'platdb'
+// })
+
