@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }) {
       fontFamily: 'Noto Sans KR, sans-serif',
     },
   });
-
+// git test
   const [queryClient] = useState(() => new QueryClient(Constants.QueryClient.config))
 
   const getLayout = Component.getLayout || (page => (
