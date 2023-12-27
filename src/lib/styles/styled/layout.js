@@ -17,7 +17,7 @@ overflow: hidden;
 `
 export const StyledLayout_Standard = styled(Layout)`
   /* padding-top: 60px; */
-  background-color: #f9fafc;
+  overflow: hidden;
   
 `
 export const StyledLayout_Mypage = styled(Layout)`

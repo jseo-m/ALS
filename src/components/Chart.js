@@ -4,14 +4,13 @@ import { useEffect, useMemo, useRef, useState } from "react"
 
 export function Echart_Gauge({lineElement}){
 
-  const chartRef = useRef()
   const option = useMemo(() => {
     return{
       series: [
         {
           type: 'gauge',
-          startAngle: 210, // 시작 각도를 180도로 설정
-          endAngle: -30, // 끝 각도를 0도로 설정
+          startAngle: 200, // 시작 각도를 180도로 설정
+          endAngle: -20, // 끝 각도를 0도로 설정
           radius: '100%', // 반원을 만들기 위해 반지름을 100%로 설정
           axisLine: {
             lineStyle: {
@@ -77,7 +76,7 @@ export function Echart_Gauge({lineElement}){
 
   return(
     <div style={{ width: '100%', height: '100%' }}>
-      <ECharts option={option} ref={chartRef} style={{ height: '90%' }}/>
+      <ECharts option={option} style={{ height: '90%' }}/>
     </div>
   )
 }

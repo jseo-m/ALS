@@ -8,7 +8,7 @@ import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 
 export const Header_main = ({isMainTop, setViewMode}) =>{
-  const {push, replace} = useRouter()
+  const {push, replace, pathname} = useRouter()
   const mainTop = !!isMainTop
 
   const {aToken, setAuth} = useAuth()
@@ -35,7 +35,7 @@ export const Header_main = ({isMainTop, setViewMode}) =>{
         </button>
       </div>
       <div>
-        <Button variant="contained" onClick={() => setViewMode(prev => !prev)}>다크/화이트 모드</Button>
+        {pathname != "/" && <Button variant="contained" onClick={() => setViewMode(prev => !prev)}>다크/화이트 모드</Button>}
       </div>
       {/* <div>
         {aToken === "" ? (

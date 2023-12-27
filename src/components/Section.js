@@ -1,13 +1,17 @@
-import { StylesFigure_ChartArea } from "@/lib/styles/styled/section";
-import { Echart_Gauge } from "./Chart";
+import { StylesCard_Monitoring, StylesFigure_ChartArea } from "@/lib/styles/styled/section";
+import { CardContent } from "@mui/material";
+import { useRouter } from "next/router";
 
-export function Chart_Section({viewMode, lineElement}){
+export function Monitoring_card({title, viewName, move}){
   // const {isLoading, data} = api.main
-  
+  const {push} = useRouter()
   return(
-    <StylesFigure_ChartArea viewMode={viewMode}>
-      
-    </StylesFigure_ChartArea>
+    <StylesCard_Monitoring onClick={() => push(move)}>
+      <CardContent>
+        <h1>{title}</h1>
+        <p>{viewName}</p>
+      </CardContent>
+    </StylesCard_Monitoring>
   )
 }
 

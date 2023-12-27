@@ -18,18 +18,28 @@ const Page = styled.main`
 
 export const StyleHome = styled(Home)`
   color: black;
-  background-color:${({viewMode}) => viewMode ? "white" : "black"};
+  background-color:white;
+  padding: 30px;
+  display: grid;
+  grid-template-columns:repeat(5, minmax(0, 1fr)); 
+  grid-template-rows:repeat(4, minmax(0, 1fr)); 
+  gap: 10px;
+`
+
+export const StyledPage_ChartSection = styled(Home)`
+  color: black;
+  background-color:${({viewMode}) => viewMode ? "white" : "#000735"};
   transition: background-color 0.5s ease;
   & > section{
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr)); 
-    grid-template-rows: repeat(3, minmax(0, 1fr));
+    grid-template-columns:${({column}) => `repeat(${column}, minmax(0, 1fr))`}; 
+    grid-template-rows:${({row}) => `repeat(${row}, minmax(0, 1fr))`}; 
     /* grid-template-columns: repeat(4, 1fr); 
     grid-template-rows: repeat(3,1fr); */
     height: 100%;
     margin: 3px;
     overflow: hidden;
-    max-height: 100vh;
+    max-height: calc(100vh - 60px);
     & > figure {
       box-shadow: 0 0 0 0.4px ${({viewMode}) => viewMode ? "black" : "white"};
       transition: box-shadow 0.5s ease;
@@ -41,6 +51,7 @@ export const StyleHome = styled(Home)`
         font-size:30px;
         font-weight:700;
         text-align:center;
+        color: ${({viewMode}) => viewMode ? "black" : "white"};
       }
       .echarts-for-react{
         position: relative;

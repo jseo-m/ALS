@@ -85,3 +85,14 @@ export const clipBoard = async (strToCopy) => {
     return false
   }
 }
+
+export function calculateNumber(n) {
+  const sqrt = Math.ceil(Math.sqrt(n))
+  if (sqrt <= 4) {
+    return {column: sqrt, row: sqrt};
+  } else {
+    const column = Math.ceil(n / 4)
+    console.log(column)
+    return {column: sqrt, row: 4}
+  }
+}

@@ -5,7 +5,7 @@ import { Nav_mypage } from "./Nav";
 
 export function Layout_main({children}) {
 	const [isMainTop, setIsMainTop] = useState(true);
-	const [viewMode, setViewMode] = useState(true);
+  const [viewMode, setViewMode] = useState(true);
 /* 
 	useEffect(() => {
     const handleScroll = () => {
@@ -26,21 +26,23 @@ export function Layout_main({children}) {
     return(
 				<StyledLayout_Main>
 						<Header_main isMainTop={isMainTop} setViewMode={setViewMode}/>
+						<main>{children}</main>
+				</StyledLayout_Main>
+    )
+}
+export function Layout_Standard({children}) {
+    const [isMainTop, setIsMainTop] = useState(true);
+    const [viewMode, setViewMode] = useState(true);
+    
+    return(
+			<StyledLayout_Standard>
+        <Header_main isMainTop={isMainTop} setViewMode={setViewMode}/>
 						<main>
             {Children.map(children, child => {
               // 여기서 `child`는 각각의 `children` 요소를 나타냅니다.
               return cloneElement(child, { viewMode });
             })}
             </main>
-				</StyledLayout_Main>
-    )
-}
-export function Layout_Standard({children}) {
-
-    return(
-			<StyledLayout_Standard>
-        <Header_main />
-        <main>{children}</main>
 			</StyledLayout_Standard>
     )
 }

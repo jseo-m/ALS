@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Card } from "@mui/material"
 
 export const StylesFigure_ChartArea = styled.figure`
   box-shadow: 0 0 0 0.4px ${({viewMode}) => viewMode ? "black" : "white"};
@@ -15,4 +16,11 @@ export const StylesFigure_ChartArea = styled.figure`
   .echarts-for-react{
     position: relative;
   }
+`
+
+export const StylesCard_Monitoring = styled(Card)`
+  &:hover {
+    background-color: #e2e2e2;
+  }
+  cursor: pointer;
 `

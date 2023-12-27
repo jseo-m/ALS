@@ -9,7 +9,6 @@ export const getLineElement = async (data) => await axios.serverless.post(mainPa
 
 export const getElementData = (data) => axios.serverless.post(mainPath, {"action" : "getElementData", "lineIdx" : data}).then(res => res.data)
 export const useGetElementData = (data, options) => {
-  console.log(data)
   return useQuery([mainPath, 'getElementData', data], () => getElementData(data), {...options, refetchInterval:3000})
 }
 
