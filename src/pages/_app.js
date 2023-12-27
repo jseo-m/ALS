@@ -6,6 +6,7 @@ import { createTheme, ThemeProvider } from '@mui/material'
 import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
 export default function App({ Component, pageProps }) {
   const {pathname} = useRouter()
 
