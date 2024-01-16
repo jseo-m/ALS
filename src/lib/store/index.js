@@ -17,3 +17,11 @@ export const useAuth = create(set => ({
   setUserInfoRefetch: (userInfoRefetch) => set({userInfoRefetch}),
   resetAuth: () => set({aToken: "", email: "", name: "", role: 0, emailAuth: false, userInfo: null, userInfoRefetch: () => {}}),
 }))
+
+export const useLine = create(set => ({
+  lineName : "",
+  lineSpeed: null,
+  setLineName: (nm) => set({lineName : nm}),
+  setLineSpeed: (speed) => set({lineSpeed : speed}),
+  resetLineData: () => set({lineName : "", lineSpeed: null})
+}))

@@ -3,13 +3,21 @@ import { Echart_Gauge } from '@/components/Chart'
 import api from '@/lib/api'
 import { useEffect, useState } from 'react'
 import { calculateNumber } from '@/lib/utils'
+import { useLine } from '@/lib/store'
+import Constants from '@/lib/Constants'
 
+const lineElement = {
+  3 : "1층 디스미어 라인#1",
+  4 : "1층 디스미어 라인#2"
+}
 
 export default function Floor1_desmear({viewMode}) {
 
   
   const lineArr = [3,4] // 총 라인 수
   const [lineArrIdx, setLineArrIdx] = useState(1)
+  const [data, setData] = useState([])
+  const {setLineName, setLineSpeed, resetLineData} = useLine()
 
   function changeLine() {
     
@@ -17,13 +25,23 @@ export default function Floor1_desmear({viewMode}) {
   }
   useEffect(() => {
     const interval = setInterval(changeLine, 5000)
-
     return () => {
       clearInterval(interval)
+      resetLineData()
     }
   },[])
 
-  const {isLoading, isFetching, data} = api.main.useGetElementData(lineArr[lineArrIdx-1],{placeholderData:[]})
+  useEffect(() => {
+    setLineName(lineElement[lineArr[lineArrIdx-1]])
+  },[lineArrIdx])
+  
+  const {isLoading} = api.main.useGetElementData(lineArr[lineArrIdx-1],{placeholderData:[],
+    onSuccess: (res) => {
+      console.log(res)
+      setData(res?.filter(v => v.plating_element_type_index != 23))
+      setLineSpeed(res?.find(v => v.plating_element_type_index == 23).plating_value)
+    }
+  })
   const grid = calculateNumber(data.length)
   return (
     <>
@@ -36,7 +54,18 @@ export default function Floor1_desmear({viewMode}) {
               return (
                 <figure key={i}>
                   <div>{data[i].plating_line_element_name}</div>
-                  <Echart_Gauge lineElement={data[i]}/>
+                  {data[i]?.plating_element_type_index == 2 ? <Echart_Gauge lineElement={data[i]}/> : (
+
+                  <div name="value">
+                    <p>
+                      <span>{data[i].plating_value}</span>
+                      <span>
+                        {data[i].plating_line_element_name.includes("압력") ? Constants.dataUnit["압력"] : 
+                          data[i].plating_line_element_name.includes("HZ") ? Constants.dataUnit["HZ"] : ""}
+                      </span>
+                    </p>
+                  </div>
+                  )}
                 </figure>
               )
             }else{

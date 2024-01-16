@@ -9,10 +9,10 @@ export const connection = mysql.createConnection({
 })
 
 // export const connection = mysql.createConnection({
-//   host: process.env.NEXT_PUBLIC_MYSQL_HOST,
+//   host: "192.168.1.39",
 //   port: '33060',
-//   user: process.env.NEXT_PUBLIC_MYSQL_USER,
-//   password: process.env.NEXT_PUBLIC_MYSQL_PASSWORD,
-//   database:'platdb'
+//   user: "root",
+//   password: "1qaz2wsx",
+//   database:'messkc_new2'
 // })
 

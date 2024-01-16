@@ -3,13 +3,20 @@ import { Echart_Gauge } from '@/components/Chart'
 import api from '@/lib/api'
 import { useEffect, useState } from 'react'
 import { calculateNumber } from '@/lib/utils'
+import { useLine } from '@/lib/store'
 
+const lineElement = {
+  1 : "1층 전처리 라인",
+  2 : "1층 전처리 라인#2 "
+}
 
 export default function Floor1_pretreat({viewMode}) {
 
   
   const lineArr = [1,2] //보여줄 라인의 인덱스
   const [lineArrIdx, setLineArrIdx] = useState(1)
+  const [data, setData] = useState([])
+  const {setLineName, setLineSpeed, resetLineData} = useLine()
 
   function changeLine() {
     
@@ -20,10 +27,21 @@ export default function Floor1_pretreat({viewMode}) {
 
     return () => {
       clearInterval(interval)
+      resetLineData()
     }
   },[])
 
-  const {isLoading, isFetching, data} = api.main.useGetElementData(lineArr[lineArrIdx-1],{placeholderData:[]})
+  useEffect(() => {
+    setLineName(lineElement[lineArr[lineArrIdx-1]])
+  },[lineArrIdx])
+
+  const {isLoading} = api.main.useGetElementData(lineArr[lineArrIdx-1],{placeholderData:[],
+    onSuccess: (res) => {
+      console.log(res)
+      setData(res?.filter(v => v.plating_element_type_index != 23))
+      setLineSpeed(res?.find(v => v.plating_element_type_index == 23)?.plating_value)
+    }
+  })
   const grid = calculateNumber(data.length)
   return (
     <>

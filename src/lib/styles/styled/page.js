@@ -56,6 +56,21 @@ export const StyledPage_ChartSection = styled(Home)`
       .echarts-for-react{
         position: relative;
       }
+      & >div[name="value"]{
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        & > p{
+          color: ${({viewMode}) => viewMode ? "black" : "white"};
+          & > span:nth-of-type(1){
+            font-size: 40px;
+          }
+          & > span:nth-of-type(2){
+            font-size: 20px;
+          }
+        }
+      }
     }
   }
 `

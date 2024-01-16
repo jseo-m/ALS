@@ -1,7 +1,7 @@
 // 백엔드 구축전  serverless API 를 위한 route
 import Mock from "@/lib/Mock";
 import { connection } from "@/lib/sqlConnect";
-
+import fs from 'fs';
 
 function executeQuery(queryString) {
   return new Promise((resolve, reject) => {
@@ -26,6 +26,7 @@ export async function getElementDataSQL(req){
     return rows
 
 }
+
 
 
 export default async function handler(req, res) {

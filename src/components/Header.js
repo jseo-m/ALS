@@ -1,6 +1,6 @@
 import Constants from "@/lib/Constants"
 import { useLogout } from "@/lib/hooks"
-import { useAuth } from "@/lib/store"
+import { useAuth, useLine } from "@/lib/store"
 import { StyledHeader_main } from "@/lib/styles"
 import { Avatar, Button } from "@mui/material"
 import Cookies from "js-cookie"
@@ -12,7 +12,7 @@ export const Header_main = ({isMainTop, setViewMode}) =>{
   const mainTop = !!isMainTop
 
   const {aToken, setAuth} = useAuth()
-  
+  const {lineName, lineSpeed} = useLine()
 
   const [anchorProfile, setAnchorProfile] = useState(null)
   const [anchorAlert, setAnchorAlert] = useState(null)
@@ -24,45 +24,19 @@ export const Header_main = ({isMainTop, setViewMode}) =>{
         <button name="logo" onClick={() => push("/")}>
           <strong>LOGO</strong>
         </button>
-
-        {Constants.topMenu.map((menu,i) =>(
+        {/* {Constants.topMenu.map((menu,i) =>(
           <button key={`menu${i}`} name="menu" onClick={() => push(menu.url)}>
-            <span>{menu.name}</span>
+          <span>{menu.name}</span>
           </button>
-        ))}
-        <button key={`menu-dev`} name="menu" onClick={() => push("/dev")}>
+          ))}
+          <button key={`menu-dev`} name="menu" onClick={() => push("/dev")}>
           <span>DEV</span>
-        </button>
+        </button> */}
       </div>
+         <p style={{fontSize:'30px', fontWeight:700}}>{lineName}&emsp;&emsp; {lineSpeed == null || <span style={{color:'red'}}>구동속도 : {lineSpeed}<span style={{fontSize:'20px'}}>m/min</span></span>}</p>
       <div>
         {pathname != "/" && <Button variant="contained" onClick={() => setViewMode(prev => !prev)}>다크/화이트 모드</Button>}
       </div>
-      {/* <div>
-        {aToken === "" ? (
-        <>
-          <button key={`menu-login`} name="menu" onClick={() => push("/nonAuth/login")}>
-            <span>로그인</span>
-          </button>
-          <button key={`menu-join`} name="menu" onClick={() => push("/nonAuth/signup")}>
-            <span>회원가입</span>
-          </button>
-        </> ) : (
-        <>
-          <button key={`menu-login`} name="menu" onClick={() => alert('개발중')}>
-            <span>기업회원전환</span>
-          </button>
-          <button key={`profile`} name="avatar" onClick={(e) => setAnchorProfile(e.currentTarget)}>
-            <Avatar>문</Avatar>
-          </button>
-          <button key={`alert`} name="alert" onClick={(e) => setAnchorAlert(e.currentTarget)}>
-            <img src="/svg/notificationsFilled.svg"></img>
-          </button>
-          <PopProfile anchorEl={anchorProfile} setAnchorEl={setAnchorProfile}/>
-          <PopAlert anchorEl={anchorAlert} setAnchorEl={setAnchorAlert}/>
-        </>
-        )}
-      </div> */}
-      
     </StyledHeader_main>
   )
 }
