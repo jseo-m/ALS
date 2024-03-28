@@ -6,8 +6,8 @@ import { calculateNumber } from '@/lib/utils'
 import { useLine } from '@/lib/store'
 
 const lineElement = {
-  1 : "1층 전처리 라인",
-  2 : "1층 전처리 라인#2 "
+  1 : "1층 전처리 1호기",
+  2 : "1층 전처리 2호기 "
 }
 
 export default function Floor1_pretreat({viewMode}) {

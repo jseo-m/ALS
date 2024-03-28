@@ -7,8 +7,8 @@ import { useLine } from '@/lib/store'
 import Constants from '@/lib/Constants'
 
 const lineElement = {
-  3 : "1층 디스미어 라인#1",
-  4 : "1층 디스미어 라인#2"
+  3 : "1층 에칭 1호기",
+  4 : "1층 에칭 2호기"
 }
 
 export default function Floor1_desmear({viewMode}) {
