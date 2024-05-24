@@ -24,7 +24,7 @@ export default function Floor1_desmear({viewMode}) {
     setLineArrIdx((prev) => (prev % lineArr.length)+1)
   }
   useEffect(() => {
-    const interval = setInterval(changeLine, 5000)
+    const interval = setInterval(changeLine, 15000)
     return () => {
       clearInterval(interval)
       resetLineData()

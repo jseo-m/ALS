@@ -12,6 +12,7 @@ import * as main from './main'
 
 // const baseurl = "https://msumer.vercel.app/" // 테스트 배포용
 const baseurl = "http://localhost:3000/"
+// const baseurl = "http://10.100.1.100:3000/"
 // const baseurl = "http://192.168.1.10:3001/"
 export const axios = {
   serverless: Axios.create({baseURL: baseurl, withCredentials: false}),
